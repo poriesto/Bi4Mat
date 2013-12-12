@@ -12,7 +12,7 @@ void show(vector <vector <double>> A)
     {
         for(int j = 0; j < A.size(); j++)
         {
-            cout <<"\t"<< A[i][j] << "\t";
+            cout <<" "<< A[i][j] << " ";
         }
         cout << endl;
     }

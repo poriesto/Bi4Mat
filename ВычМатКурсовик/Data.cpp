@@ -7,7 +7,7 @@ vector<double> GetDoubleElement(string str)
 	int cpos = 0, pos = 0;
 	string tmp;
 	string::iterator striter = str.begin();
-	while(striter != str.end() - 1)
+	while(striter != str.end())
 	{
 		cpos = str.find(" ", pos);
 		tmp = str.substr(pos, cpos - pos);
@@ -17,24 +17,24 @@ vector<double> GetDoubleElement(string str)
 		pos = cpos + 1;
 		if(cpos == -1) break;
 	}
-	vector<double>::iterator iter = row.begin();
 	return row;
 }
 
 vector<vector<double>> ReadFromFile(char *filename)
 {
 	ifstream matrix;
-	double tm;
+	vector<double> tm;
 	vector<vector<double>> A;
+	vector<double>::iterator iter = tm.begin();
 	string str;
-	int i = 0;
 	matrix.open(filename);
 	if(matrix.is_open())
 	{
 		while(!matrix.eof())
 		{
 			getline(matrix, str);
-			A.push_back(GetDoubleElement(str));
+			tm = GetDoubleElement(str);
+			A.push_back(tm);
 		}
 	}
 	return A;
