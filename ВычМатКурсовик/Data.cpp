@@ -39,3 +39,38 @@ vector<vector<double>> ReadFromFile(char *filename)
 	}
 	return A;
 }
+
+void show(vector <vector <double>> A)
+{
+    for(int i = 0; i < A.size(); i++)
+    {
+        for(int j = 0; j < A.size(); j++)
+        {
+            cout <<" "<< A[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void show(vector<double>A)
+{
+	vector<double>::iterator iter = A.begin();
+	while(iter != A.end())
+	{
+		cout << " " << *iter << " ";
+		iter++;
+	}
+	cout << endl;
+}
+
+void Audio1()
+{
+	char szPath[] = "E:\\01 Born To Die.mp3";
+    GetShortPathName(szPath,szPath,strlen(szPath));
+    char mciStr[MAX_PATH] = {0};
+    sprintf(mciStr,"play %s wait",szPath);
+    if(!mciSendString(mciStr, NULL, 0, NULL))
+        printf("mciSendString - PLAY\n");
+    else
+        printf("mciSendString - ERROR %s\n",strerror(GetLastError()));
+}

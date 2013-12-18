@@ -1,4 +1,6 @@
+#pragma comment(lib, "winmm.lib")
 #include "stdafx.h"
+#include <Windows.h>
 #include <iostream>
 #include "calcmd.h"
 #include "Data.h"
@@ -7,22 +9,12 @@
 #define FILE_MATRIX_B "../matrixB.txt"
 using namespace std;
 
-void show(vector <vector <double>> A)
-{
-    for(int i = 0; i < A.size(); i++)
-    {
-        for(int j = 0; j < A.size(); j++)
-        {
-            cout <<" "<< A[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
-
 int main()
 {
+	Audio1();
 	cout << "Vvedite pazmepnost matrix:" << endl;
     vector<vector<double>> A, B, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
+	vector<double>New;
 	A = ReadFromFile(FILE_MATRIX_A);
 	B = ReadFromFile(FILE_MATRIX_B);
 	for(int i = 0; i < MATRIX_SIZE; i++)
@@ -46,6 +38,9 @@ int main()
     proisv(L,U,R);
     cout << "L*U matrix" << endl;
     show(R);
+	New = Nev(A, R);
+	cout << "Nevjazka:" << endl; 
+	show(New);
 	system("pause");
     return 0;
 }

@@ -62,3 +62,16 @@ void QR(vector<vector<double>>A, vector<double> B)
 		}
 	}
 }
+
+vector<double> Nev(vector<vector<double>>initial_matrix, vector<vector<double>>calculated_matrix)
+{
+	vector<double>nev;
+	double tmp;
+	for(int i = 0; i != initial_matrix.size(); i++){
+		for(int j = 0; j != initial_matrix.size(); j++){
+			tmp = calculated_matrix[i][j] - initial_matrix[i][j];
+			nev.push_back(tmp);
+		}
+	}
+	return nev;
+}
