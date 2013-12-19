@@ -11,8 +11,6 @@ using namespace std;
 
 int main()
 {
-	Audio1();
-	cout << "Vvedite pazmepnost matrix:" << endl;
     vector<vector<double>> A, B, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
 	vector<double>New;
 	A = ReadFromFile(FILE_MATRIX_A);
@@ -37,14 +35,11 @@ int main()
     show(L);/*
     proisv(L,U,R);
     cout << "L*U matrix" << endl;
-<<<<<<< HEAD
     show(R);*/
-=======
-    show(R);
-	New = Nev(A, R);
+   // show(R);
+	/*New = Nev(A, R);
 	cout << "Nevjazka:" << endl; 
-	show(New);
->>>>>>> 33ca11a1b3617ed3bdcbba7c97b0be6b1d6c0b54
+	show(New);*/
 	system("pause");
     return 0;
 }
