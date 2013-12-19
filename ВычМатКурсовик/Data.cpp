@@ -39,3 +39,16 @@ vector<vector<double>> ReadFromFile(char *filename)
 	}
 	return A;
 }
+
+
+void show(vector <vector <double>> A)
+{
+    for(int i = 0; i < A.size(); i++)
+    {
+        for(int j = 0; j < A.size(); j++)
+        {
+            cout <<" "<< A[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
