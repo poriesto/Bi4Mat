@@ -1,4 +1,6 @@
+#pragma comment(lib, "winmm.lib")
 #include "stdafx.h"
+#include <Windows.h>
 #include <iostream>
 #include "calcmd.h"
 #include "Data.h"
@@ -9,8 +11,10 @@ using namespace std;
 
 int main()
 {
+	Audio1();
 	cout << "Vvedite pazmepnost matrix:" << endl;
     vector<vector<double>> A, B, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
+	vector<double>New;
 	A = ReadFromFile(FILE_MATRIX_A);
 	//B = ReadFromFile(FILE_MATRIX_B);
 	for(int i = 0; i < MATRIX_SIZE; i++)
@@ -33,7 +37,14 @@ int main()
     show(L);/*
     proisv(L,U,R);
     cout << "L*U matrix" << endl;
+<<<<<<< HEAD
     show(R);*/
+=======
+    show(R);
+	New = Nev(A, R);
+	cout << "Nevjazka:" << endl; 
+	show(New);
+>>>>>>> 33ca11a1b3617ed3bdcbba7c97b0be6b1d6c0b54
 	system("pause");
     return 0;
 }
