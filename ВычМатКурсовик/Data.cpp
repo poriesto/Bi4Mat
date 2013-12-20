@@ -62,15 +62,3 @@ void show(vector<double>A)
 	}
 	cout << endl;
 }
-
-void Audio1()
-{
-	char szPath[] = "E:\\01 Born To Die.mp3";
-    GetShortPathName(szPath,szPath,strlen(szPath));
-    char mciStr[MAX_PATH] = {0};
-    sprintf(mciStr,"play %s wait",szPath);
-    if(!mciSendString(mciStr, NULL, 0, NULL))
-        printf("mciSendString - PLAY\n");
-    else
-        printf("mciSendString - ERROR %s\n",strerror(GetLastError()));
-}

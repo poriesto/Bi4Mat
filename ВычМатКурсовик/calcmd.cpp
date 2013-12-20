@@ -1,24 +1,31 @@
 #include "stdafx.h"
 #include "calcmd.h"
-
+#include <iostream>
 void LU(vector <vector <double>> A, vector <vector <double>> &L, 
         vector <vector <double>> &U)
 {
     U=A;
 
-    for(int i = 0; i < U.size(); i++)
-        for(int j = i; j < U.size(); j++)
+    for(int i = 0; i < U.size(); i++){
+        for(int j = i; j < U.size(); j++){
             L[j][i]=U[j][i]/U[i][i];
-    
+			std::cout << "L[" << j <<"][" << i << "] = U[" << j << "][" << i << "] / " << "U[" << i << "][" << i << "] = " << endl << endl << endl;  
+		}
+	}
+	cout << "Second Part of LU:" << endl;
     for(int k = 1; k < U.size(); k++)
     {
-        for(int i = k-1; i < U.size(); i++)
-            for(int j = i; j < U.size(); j++)
+        for(int i = k-1; i < U.size(); i++){
+            for(int j = i; j < U.size(); j++){
                 L[j][i]=U[j][i]/U[i][i];
-
-        for(int i = k; i < U.size(); i++)
-            for(int j = k-1; j < U.size(); j++)
+				cout << "L[" << j << "][" << i << "] = U[" << j << "][" << i << "] / U[" << i << "][" << i << "] = " << endl << endl << endl;				
+			}}
+        for(int i = k; i < U.size(); i++){
+            for(int j = k-1; j < U.size(); j++){
                 U[i][j]=U[i][j]-L[i][k-1]*U[k-1][j];
+				cout << "U[" << i << "][" << j << "] = U[" << i << "][" << j << "] - L[" << i << "][" << k-1 << "] * U[" << k-1 << "][" << j << "] = " << endl << endl << endl; 
+			}
+		}
     }
 
 }
