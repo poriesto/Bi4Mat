@@ -28,9 +28,9 @@ int main()
     cout << "Matrix A" << endl;
 	show(A);
 	/*cout << "Matrix B:" << endl;
-	show(B);*//*
+	show(B);*/
     cout << "U matrix" << endl;
-    show(U);*/
+    show(U);
     cout << "L matrix" << endl;
     show(L);/*
     proisv(L,U,R);
