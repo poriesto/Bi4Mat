@@ -1,17 +1,13 @@
-#pragma comment(lib, "winmm.lib")
 #include "stdafx.h"
-#include <Windows.h>
-#include <iostream>
 #include "calcmd.h"
 #include "Data.h"
 #define MATRIX_SIZE 4
 #define FILE_MATRIX_A "../matrixA.txt"
 #define FILE_MATRIX_B "../matrixB.txt"
-using namespace std;
 
 int main()
 {
-    vector<vector<double>> A, B, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
+	vector<vector<double>> A, B(MATRIX_SIZE), L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
 	vector<double>New;
 	A = ReadFromFile(FILE_MATRIX_A);
 	//B = ReadFromFile(FILE_MATRIX_B);
@@ -24,19 +20,18 @@ int main()
             R[i].push_back(0);
        }
     }
-    LU(A,L,U);
+	LU(A,L,U);
     cout << "Matrix A" << endl;
 	show(A);
-	/*cout << "Matrix B:" << endl;
-	show(B);*/
+	//cout << "Matrix B:" << endl;
+	//show(B);
     cout << "U matrix" << endl;
     show(U);
     cout << "L matrix" << endl;
-    show(L);/*
+    show(L);
     proisv(L,U,R);
     cout << "L*U matrix" << endl;
-    show(R);*/
-   // show(R);
+    show(R);
 	/*New = Nev(A, R);
 	cout << "Nevjazka:" << endl; 
 	show(New);*/
