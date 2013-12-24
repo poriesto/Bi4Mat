@@ -8,8 +8,8 @@ void LU(vector <vector <double>> A, vector <vector <double>> &L,
 
     for(int i = 0; i < U.size(); i++){
         for(int j = i; j < U.size(); j++){
-            L[j][i]=U[j][i]/U[i][i];
-			std::cout << "L[" << j <<"][" << i << "] = U[" << j << "][" << i << "] / " << "U[" << i << "][" << i << "] = " << endl << endl << endl;  
+			L[j][i]=A[j][i]/U[i][i];
+			std::cout << "L[" << j <<"][" << i << "] = A[" << j << "][" << i << "] / " << "U[" << i << "][" << i << "] = " << A[j][i] << "/" << U[i][i] <<" = "<<L[j][i] << endl;  
 		}
 	}
 	cout << "Second Part of LU:" << endl;
@@ -17,13 +17,15 @@ void LU(vector <vector <double>> A, vector <vector <double>> &L,
     {
         for(int i = k-1; i < U.size(); i++){
             for(int j = i; j < U.size(); j++){
-                L[j][i]=U[j][i]/U[i][i];
-				cout << "L[" << j << "][" << i << "] = U[" << j << "][" << i << "] / U[" << i << "][" << i << "] = " << endl << endl << endl;				
+				L[j][i]=U[j][i]/U[i][i];
+				cout << "L[" << j << "][" << i << "] = U[" << j << "][" << i << "] / U[" << i << "][" << i << "] = " << U[j][i] << "/" << U[i][i] << " = " << L[j][i] <<endl;				
 			}}
+		cout << "Matrix U:" << endl;
         for(int i = k; i < U.size(); i++){
             for(int j = k-1; j < U.size(); j++){
                 U[i][j]=U[i][j]-L[i][k-1]*U[k-1][j];
-				cout << "U[" << i << "][" << j << "] = U[" << i << "][" << j << "] - L[" << i << "][" << k-1 << "] * U[" << k-1 << "][" << j << "] = " << endl << endl << endl; 
+				cout << "U[" << i << "][" << j << "] = U[" << i << "][" << j << "] - L[" << i << "][" << k-1 << "] * U[" << k-1 << "][" << j << "] = " << U[i][j] << " - (" << L[i][k-1] << " * " << U[k-1][j]<<") = " 
+					<< U[i][j] << endl; 
 			}
 		}
     }

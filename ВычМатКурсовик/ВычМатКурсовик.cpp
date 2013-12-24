@@ -7,7 +7,7 @@
 
 int main()
 {
-	vector<vector<double>> A, B(MATRIX_SIZE), L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
+	vector<vector<double>> A, B, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
 	vector<double>New;
 	A = ReadFromFile(FILE_MATRIX_A);
 	//B = ReadFromFile(FILE_MATRIX_B);
