@@ -4,6 +4,7 @@ using namespace std;
 
 void LU(vector <vector <double>> A, vector <vector <double>> &L, 
         vector <vector <double>> &U);
+void secondLU(vector<vector<double>>A);
 void proisv(vector <vector <double>> A, vector <vector <double>> B, 
             vector <vector <double>> &R);
 void QR(vector<vector <double>> A, vector<double>B);

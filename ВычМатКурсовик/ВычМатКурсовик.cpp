@@ -1,4 +1,3 @@
-#pragma comment(lib, "winmm.lib")
 #include "stdafx.h"
 #include <Windows.h>
 #include <iostream>
@@ -24,19 +23,18 @@ int main()
             R[i].push_back(0);
        }
     }
-    LU(A,L,U);
+	LU(A,L,U);
     cout << "Matrix A" << endl;
 	show(A);
 	/*cout << "Matrix B:" << endl;
-	show(B);*//*
+	show(B);*/
     cout << "U matrix" << endl;
-    show(U);*/
+    show(U);
     cout << "L matrix" << endl;
-    show(L);/*
+    show(L);
     proisv(L,U,R);
     cout << "L*U matrix" << endl;
-    show(R);*/
-   // show(R);
+    show(R);
 	/*New = Nev(A, R);
 	cout << "Nevjazka:" << endl; 
 	show(New);*/
