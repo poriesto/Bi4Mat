@@ -23,8 +23,13 @@ int main()
 	LU(A,L,U);
     cout << "Matrix A" << endl;
 	show(A);
+<<<<<<< HEAD
+	/*cout << "Matrix B:" << endl;
+	show(B);*/
+=======
 	//cout << "Matrix B:" << endl;
 	//show(B);
+>>>>>>> 09a43b6101728c62738222959cfbe268598cfc41
     cout << "U matrix" << endl;
     show(U);
     cout << "L matrix" << endl;
