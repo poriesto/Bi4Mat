@@ -1,16 +1,13 @@
 #include "stdafx.h"
-#include <Windows.h>
-#include <iostream>
 #include "calcmd.h"
 #include "Data.h"
 #define MATRIX_SIZE 4
 #define FILE_MATRIX_A "../matrixA.txt"
 #define FILE_MATRIX_B "../matrixB.txt"
-using namespace std;
 
 int main()
 {
-    vector<vector<double>> A, B, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
+	vector<vector<double>> A, B(MATRIX_SIZE), L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
 	vector<double>New;
 	A = ReadFromFile(FILE_MATRIX_A);
 	//B = ReadFromFile(FILE_MATRIX_B);
@@ -26,8 +23,13 @@ int main()
 	LU(A,L,U);
     cout << "Matrix A" << endl;
 	show(A);
+<<<<<<< HEAD
 	/*cout << "Matrix B:" << endl;
 	show(B);*/
+=======
+	//cout << "Matrix B:" << endl;
+	//show(B);
+>>>>>>> 09a43b6101728c62738222959cfbe268598cfc41
     cout << "U matrix" << endl;
     show(U);
     cout << "L matrix" << endl;

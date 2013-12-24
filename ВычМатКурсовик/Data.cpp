@@ -11,6 +11,7 @@ vector<double> GetDoubleElement(string str)
 	{
 		cpos = str.find(" ", pos);
 		tmp = str.substr(pos, cpos - pos);
+		//добавте сюда проверку на / делайте double drob = atoi(tmp4.c_str())/atoi(tmpZ.c_str()) и вот вам блять дроби уебки!
 		row.push_back(atof(tmp.c_str()));
 		striter = str.begin();
 		striter = striter + (cpos+1);

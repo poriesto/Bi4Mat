@@ -8,5 +8,4 @@ using namespace std;
 vector<double> GetDoubleElement(string str);
 vector<vector<double>> ReadFromFile(char *filename);
 void show(vector <vector <double>> A);
-void show(vector <vector <double>> A);
 void show(vector <double> A);
