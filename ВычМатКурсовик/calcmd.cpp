@@ -9,23 +9,17 @@ void LU(vector <vector <double>> A, vector <vector <double>> &L,
     for(int i = 0; i < U.size(); i++){
         for(int j = i; j < U.size(); j++){
 			L[j][i]=A[j][i]/U[i][i];
-			std::cout << "L[" << j <<"][" << i << "] = A[" << j << "][" << i << "] / " << "U[" << i << "][" << i << "] = " << A[j][i] << "/" << U[i][i] <<" = "<<L[j][i] << endl;  
 		}
 	}
-	cout << "Second Part of LU:" << endl;
     for(int k = 1; k < U.size(); k++)
     {
         for(int i = k-1; i < U.size(); i++){
             for(int j = i; j < U.size(); j++){
 				L[j][i]=U[j][i]/U[i][i];
-				cout << "L[" << j << "][" << i << "] = U[" << j << "][" << i << "] / U[" << i << "][" << i << "] = " << U[j][i] << "/" << U[i][i] << " = " << L[j][i] <<endl;				
 			}}
-		cout << "Matrix U:" << endl;
         for(int i = k; i < U.size(); i++){
             for(int j = k-1; j < U.size(); j++){
                 U[i][j]=U[i][j]-L[i][k-1]*U[k-1][j];
-				cout << "U[" << i << "][" << j << "] = U[" << i << "][" << j << "] - L[" << i << "][" << k-1 << "] * U[" << k-1 << "][" << j << "] = " << U[i][j] << " - (" << L[i][k-1] << " * " << U[k-1][j]<<") = " 
-					<< U[i][j] << endl; 
 			}
 		}
     }
@@ -83,4 +77,30 @@ vector<double> Nev(vector<vector<double>>initial_matrix, vector<vector<double>>c
 		}
 	}
 	return nev;
+}
+
+vector<vector<double>> cholesky(vector<vector<double>>initial_matrix){
+	int PROBLEM_SIZE = initial_matrix.size();
+	double summ = 0;
+	double tmp = 0;
+	vector<vector<double>>result_matrix(PROBLEM_SIZE);
+	for(int i = 0; i < PROBLEM_SIZE; i++)
+    {
+        for(int j = 0; j < PROBLEM_SIZE; j++)
+        {
+			result_matrix[i].push_back(0);
+       }
+    }
+	for(int i = 0; i < initial_matrix.size(); i++){
+		for(int j = 0; j < initial_matrix.size(); j++){
+			for(int k = 0; k < j; k++) summ += result_matrix[i][k] * result_matrix[j][k];
+			result_matrix[i][j] = (initial_matrix[i][j] - summ) / initial_matrix[j][j];
+		}
+		tmp = initial_matrix[i][i];
+		for(int k = 0; k < i; k++){
+			tmp -= result_matrix[i][k] * result_matrix[i][k];
+		}
+		result_matrix[i][i] = sqrt(tmp);
+	}
+	return result_matrix;
 }
