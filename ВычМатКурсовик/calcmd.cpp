@@ -79,28 +79,37 @@ vector<double> Nev(vector<vector<double>>initial_matrix, vector<vector<double>>c
 	return nev;
 }
 
-vector<vector<double>> cholesky(vector<vector<double>>initial_matrix){
-	int PROBLEM_SIZE = initial_matrix.size();
-	double summ = 0;
-	double tmp = 0;
-	vector<vector<double>>result_matrix(PROBLEM_SIZE);
-	for(int i = 0; i < PROBLEM_SIZE; i++)
-    {
-        for(int j = 0; j < PROBLEM_SIZE; j++)
+vector<vector<double>>cholesky(vector<vector<double>>A){
+	vector<vector<double>>L(A.size());
+	for(int i = 0; i < A.size(); i++)
+		{
+		 for(int j = 0; j < A.size(); j++)
         {
-			result_matrix[i].push_back(0);
+			L[i].push_back(0);
        }
     }
-	for(int i = 0; i < initial_matrix.size(); i++){
-		for(int j = 0; j < initial_matrix.size(); j++){
-			for(int k = 0; k < j; k++) summ += result_matrix[i][k] * result_matrix[j][k];
-			result_matrix[i][j] = (initial_matrix[i][j] - summ) / initial_matrix[j][j];
+	for(int i = 0; i < A.size(); i++){
+		cout << A[i][i] << " ";
+		for(int k = 0; k < i -1; k++) L[i][i] = A[i][i] - L[i][k]*L[i][k];
+		cout << L[i][i] << " ";
+		L[i][i] = sqrt(L[i][i]);
+		for(int j = i + 1; j < A.size(); j++){
+			for(int k = 0; k < i -1; k++) L[j][i] = A[j][i] - L[i][k]*L[j][k];
+			L[j][i] = L[j][i] / L[i][i];
 		}
-		tmp = initial_matrix[i][i];
-		for(int k = 0; k < i; k++){
-			tmp -= result_matrix[i][k] * result_matrix[i][k];
-		}
-		result_matrix[i][i] = sqrt(tmp);
 	}
-	return result_matrix;
+	return L;
+}
+
+void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B, vector<double>x, vector<double>y){
+	//vector Y
+	for(int i = 0; i < L.size(); i++){
+		for(int j = 0; j < L.size(); j++){
+		}
+	}
+	//for vecotor X
+	for(int i = 0; i < L.size(); i++){
+		for(int j = 0; j < L.size(); j++){
+		}
+	}
 }
