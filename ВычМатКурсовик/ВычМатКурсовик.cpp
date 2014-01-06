@@ -9,6 +9,7 @@ int main()
 {
 	vector<vector<double>> A, B, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE), ch(MATRIX_SIZE);
 	vector<double>New;
+	double dt;
 	A = ReadFromFile(FILE_MATRIX_A);
 	B = ReadFromFile(FILE_MATRIX_B);
 	for(int i = 0; i < MATRIX_SIZE; i++)
@@ -33,11 +34,13 @@ int main()
 	/*New = Nev(A, R);
 	cout << "Nevjazka:" << endl; 
 	show(New);*/
-	cout << "Matrix B:" << endl;
-	show(B);
-	cout << "Cholesky method:" << endl;
-	ch = cholesky(B);
-	show(ch);
+	New.push_back(79);
+	New.push_back(76);
+	New.push_back(-146);
+	New.push_back(23);
+	cout << "B: " << endl;
+	show(New);
+	LU_slau(L, U, New);
 	system("pause");
     return 0;
 }

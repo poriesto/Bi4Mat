@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "calcmd.h"
+#include "data.h"
 #include <iostream>
 void LU(vector <vector <double>> A, vector <vector <double>> &L, 
         vector <vector <double>> &U)
@@ -101,15 +102,84 @@ vector<vector<double>>cholesky(vector<vector<double>>A){
 	return L;
 }
 
-void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B, vector<double>x, vector<double>y){
-	//vector Y
-	for(int i = 0; i < L.size(); i++){
-		for(int j = 0; j < L.size(); j++){
+void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B){
+	double dtL1, dtL2, dtL3, dtL4, dtL;
+	dtL = determ(L);
+	vector<double>x, y;
+	vector<vector<double>>Ly1 = L, Ly2 = L, Ly3 = L, Ly0 = L;
+	vector<vector<double>>Ux1 = U, Ux2 = U, Ux3 = U, Ux0 = U;
+	for(int i = 0; i < Ly1.size(); i++){
+		Ly0[i][0] = B[i];
+	}
+	for(int i = 0; i < Ly1.size(); i++){
+		Ly1[i][1] = B[i];
+	}
+	for(int i = 0; i < Ly2.size(); i++){
+		Ly2[i][2] = B[i];
+	}
+	for(int i = 0; i < Ly3.size(); i++){
+		Ly3[i][3] = B[i];
+	}
+
+	for(int i = 0; i < Ux1.size(); i++){
+		Ux0[i][0] = B[i];
+	}
+	for(int i = 0; i < Ux1.size(); i++){
+		Ux1[i][1] = B[i];
+	}
+	for(int i = 0; i < Ux2.size(); i++){
+		Ux2[i][2] = B[i];
+	}
+	for(int i = 0; i < Ux3.size(); i++){
+		Ux3[i][3] = B[i];
+	}
+	x.push_back(determ(Ly0)/dtL);
+	x.push_back(determ(Ly1)/dtL);
+	x.push_back(determ(Ly2)/dtL);
+	x.push_back(determ(Ly3)/dtL);
+	y.push_back(determ(Ux0)/determ(U));
+	y.push_back(determ(Ux1)/determ(U));
+	y.push_back(determ(Ux2)/determ(U));
+	y.push_back(determ(Ux3)/determ(U));
+	cout << "Slau:" << endl;
+	vector<double>::iterator iter = x.begin();
+	cout << "X: " << endl;
+	while(iter != x.end()){
+		cout << *iter << endl;
+		iter++;
+	}
+	vector<double>::iterator iter1 = y.begin();
+	cout << "Y: " << endl;
+	while(iter != y.end()){
+		cout << *iter1 << endl;
+		iter1++;
+	}
+}
+
+double determ(vector<vector<double>>a){
+	int p=0, i, j, t, k;
+	double kst;
+	int n = a.size();
+	for (i=0; i<n-1; i++){
+		t=1;
+	while(a[i][i]==0){
+		for(j=0; j<n; j++){
+			a[i][j]=kst;
+			a[i][j]=a[i+t][j];
+			a[i+t][j]=kst;
+		}
+		p++;
+		t++;
+	}
+ 
+	for (k=i+1; k<n; k++){
+		kst=a[k][i]/a[i][i];
+		for(j=0; j<n; j++)
+			a[k][j]-=a[i][j]*kst;
 		}
 	}
-	//for vecotor X
-	for(int i = 0; i < L.size(); i++){
-		for(int j = 0; j < L.size(); j++){
-		}
-	}
+ 
+	kst=pow(-1,p);
+	for(i=0; i<n; i++) kst*=a[i][i];
+	return kst;
 }
