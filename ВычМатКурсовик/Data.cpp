@@ -58,7 +58,7 @@ void show(vector<double>A)
 	vector<double>::iterator iter = A.begin();
 	while(iter != A.end())
 	{
-		cout << " " << *iter << " ";
+		cout << " " << *iter << "\n";
 		iter++;
 	}
 	cout << endl;

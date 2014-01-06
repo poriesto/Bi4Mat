@@ -36,10 +36,11 @@ int main()
 	show(New);*/
 	New.push_back(79);
 	New.push_back(76);
-	New.push_back(-146);
+	New.push_back(-141);
 	New.push_back(23);
 	cout << "B: " << endl;
 	show(New);
+	cout << "decision Ax = B" << endl;
 	LU_slau(L, U, New);
 	system("pause");
     return 0;

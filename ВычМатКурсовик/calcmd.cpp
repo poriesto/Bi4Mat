@@ -80,32 +80,11 @@ vector<double> Nev(vector<vector<double>>initial_matrix, vector<vector<double>>c
 	return nev;
 }
 
-vector<vector<double>>cholesky(vector<vector<double>>A){
-	vector<vector<double>>L(A.size());
-	for(int i = 0; i < A.size(); i++)
-		{
-		 for(int j = 0; j < A.size(); j++)
-        {
-			L[i].push_back(0);
-       }
-    }
-	for(int i = 0; i < A.size(); i++){
-		cout << A[i][i] << " ";
-		for(int k = 0; k < i -1; k++) L[i][i] = A[i][i] - L[i][k]*L[i][k];
-		cout << L[i][i] << " ";
-		L[i][i] = sqrt(L[i][i]);
-		for(int j = i + 1; j < A.size(); j++){
-			for(int k = 0; k < i -1; k++) L[j][i] = A[j][i] - L[i][k]*L[j][k];
-			L[j][i] = L[j][i] / L[i][i];
-		}
-	}
-	return L;
-}
-
 void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B){
 	double dtL1, dtL2, dtL3, dtL4, dtL;
 	dtL = determ(L);
-	vector<double>x, y;
+	vector<double>x;
+	vector<double>y;
 	vector<vector<double>>Ly1 = L, Ly2 = L, Ly3 = L, Ly0 = L;
 	vector<vector<double>>Ux1 = U, Ux2 = U, Ux3 = U, Ux0 = U;
 	for(int i = 0; i < Ly1.size(); i++){
@@ -120,40 +99,33 @@ void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B){
 	for(int i = 0; i < Ly3.size(); i++){
 		Ly3[i][3] = B[i];
 	}
-
-	for(int i = 0; i < Ux1.size(); i++){
-		Ux0[i][0] = B[i];
-	}
-	for(int i = 0; i < Ux1.size(); i++){
-		Ux1[i][1] = B[i];
-	}
-	for(int i = 0; i < Ux2.size(); i++){
-		Ux2[i][2] = B[i];
-	}
-	for(int i = 0; i < Ux3.size(); i++){
-		Ux3[i][3] = B[i];
-	}
 	x.push_back(determ(Ly0)/dtL);
 	x.push_back(determ(Ly1)/dtL);
 	x.push_back(determ(Ly2)/dtL);
 	x.push_back(determ(Ly3)/dtL);
+
+	for(int i = 0; i < Ux0.size(); i++){
+		Ux0[i][0] = x[i];
+	}
+	for(int i = 0; i < Ux1.size(); i++){
+		Ux1[i][1] = x[i];
+	}
+	for(int i = 0; i < Ux2.size(); i++){
+		Ux2[i][2] = x[i];
+	}
+	for(int i = 0; i < Ux3.size(); i++){
+		Ux3[i][3] = x[i];
+	}
+
 	y.push_back(determ(Ux0)/determ(U));
 	y.push_back(determ(Ux1)/determ(U));
 	y.push_back(determ(Ux2)/determ(U));
 	y.push_back(determ(Ux3)/determ(U));
-	cout << "Slau:" << endl;
-	vector<double>::iterator iter = x.begin();
-	cout << "X: " << endl;
-	while(iter != x.end()){
-		cout << *iter << endl;
-		iter++;
-	}
-	vector<double>::iterator iter1 = y.begin();
-	cout << "Y: " << endl;
-	while(iter != y.end()){
-		cout << *iter1 << endl;
-		iter1++;
-	}
+
+	cout << "decision Ly = B" << endl;
+	show(x);
+	cout << "decision Ux = y" << endl;
+	show(y);
 }
 
 double determ(vector<vector<double>>a){
