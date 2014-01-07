@@ -67,60 +67,25 @@ void QR(vector<vector<double>>A, vector<double> B)
 	}
 }
 
-vector<double> Nev(vector<vector<double>>initial_matrix, vector<vector<double>>calculated_matrix)
-{
-	vector<double>nev;
-	double tmp;
-	for(int i = 0; i != initial_matrix.size(); i++){
-		for(int j = 0; j != initial_matrix.size(); j++){
-			tmp = calculated_matrix[i][j] - initial_matrix[i][j];
-			nev.push_back(tmp);
-		}
-	}
-	return nev;
-}
-
 void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B){
-	double dtL1, dtL2, dtL3, dtL4, dtL;
-	dtL = determ(L);
-	vector<double>x;
-	vector<double>y;
-	vector<vector<double>>Ly1 = L, Ly2 = L, Ly3 = L, Ly0 = L;
-	vector<vector<double>>Ux1 = U, Ux2 = U, Ux3 = U, Ux0 = U;
-	for(int i = 0; i < Ly1.size(); i++){
-		Ly0[i][0] = B[i];
-	}
-	for(int i = 0; i < Ly1.size(); i++){
-		Ly1[i][1] = B[i];
-	}
-	for(int i = 0; i < Ly2.size(); i++){
-		Ly2[i][2] = B[i];
-	}
-	for(int i = 0; i < Ly3.size(); i++){
-		Ly3[i][3] = B[i];
-	}
-	x.push_back(determ(Ly0)/dtL);
-	x.push_back(determ(Ly1)/dtL);
-	x.push_back(determ(Ly2)/dtL);
-	x.push_back(determ(Ly3)/dtL);
 
-	for(int i = 0; i < Ux0.size(); i++){
-		Ux0[i][0] = x[i];
+	vector<double>x, y;
+	vector<vector<double>> Ly = L, Ux = U;
+	
+	for(int i = 0; i < L.size(); i++){
+		for(int j = 0; j < L.size(); j++){
+			Ly[j][i] = B[j];
+		}
+		x.push_back(determ(Ly)/determ(L));
+		Ly = L;
 	}
-	for(int i = 0; i < Ux1.size(); i++){
-		Ux1[i][1] = x[i];
+	for(int i = 0; i < L.size(); i++){
+		for(int j = 0; j < L.size(); j++){
+			Ux[j][i] = x[j];
+		}
+		y.push_back(determ(Ux)/determ(U));
+		Ux = U;
 	}
-	for(int i = 0; i < Ux2.size(); i++){
-		Ux2[i][2] = x[i];
-	}
-	for(int i = 0; i < Ux3.size(); i++){
-		Ux3[i][3] = x[i];
-	}
-
-	y.push_back(determ(Ux0)/determ(U));
-	y.push_back(determ(Ux1)/determ(U));
-	y.push_back(determ(Ux2)/determ(U));
-	y.push_back(determ(Ux3)/determ(U));
 
 	cout << "decision Ly = B" << endl;
 	show(x);
@@ -130,7 +95,7 @@ void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B){
 
 double determ(vector<vector<double>>a){
 	int p=0, i, j, t, k;
-	double kst;
+	double kst = 0;
 	int n = a.size();
 	for (i=0; i<n-1; i++){
 		t=1;
