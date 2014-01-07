@@ -3,15 +3,17 @@
 #include "Data.h"
 #define MATRIX_SIZE 4
 #define FILE_MATRIX_A "../matrixA.txt"
+#define FILE_MATRIX_A1 "../matrixA1.txt"
 #define FILE_MATRIX_B "../matrixB.txt"
 
 int main()
 {
-	vector<vector<double>> A, B, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE), ch(MATRIX_SIZE);
-	vector<double>New;
+	vector<vector<double>> A, A1, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
+	vector<double>B;
 	double dt;
 	A = ReadFromFile(FILE_MATRIX_A);
-	B = ReadFromFile(FILE_MATRIX_B);
+	A1 = ReadFromFile(FILE_MATRIX_A1);
+	B = ReadFromFile(FILE_MATRIX_B, 1);
 	for(int i = 0; i < MATRIX_SIZE; i++)
     {
         for(int j = 0; j < MATRIX_SIZE; j++)
@@ -31,17 +33,10 @@ int main()
     proisv(L,U,R);
     cout << "L*U matrix" << endl;
     show(R);
-	/*New = Nev(A, R);
-	cout << "Nevjazka:" << endl; 
-	show(New);*/
-	New.push_back(79);
-	New.push_back(76);
-	New.push_back(-141);
-	New.push_back(23);
 	cout << "B: " << endl;
-	show(New);
+	show(B);
 	cout << "decision Ax = B" << endl;
-	LU_slau(L, U, New);
+	LU_slau(L, U, B);
 	system("pause");
     return 0;
 }

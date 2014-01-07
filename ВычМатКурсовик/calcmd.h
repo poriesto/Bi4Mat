@@ -9,3 +9,4 @@ void proisv(vector <vector <double>> A, vector <vector <double>> B,
 void QR(vector<vector <double>> A, vector<double>B);
 void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B);
 double determ(vector<vector<double>>matrix);
+vector<double>Isolve(vector<vector<double>>A, vector<double>B);
