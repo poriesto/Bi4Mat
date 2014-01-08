@@ -37,6 +37,7 @@ int main()
 	show(B);
 	cout << "decision Ax = B" << endl;
 	LU_slau(L, U, B);
+	QR(A1);
 	system("pause");
     return 0;
 }

@@ -36,26 +36,31 @@ void proisv(vector <vector <double>> A, vector <vector <double>> B,
                 R[i][j] += A[i][k] * B[k][j];
 }
 
-void QR(vector<vector<double>>A, vector<double> B)
+void QR(vector<vector<double>>A/*, vector<double> B*/)
 {
-	vector<vector<double>> c(A.size()), s(A.size());
-	vector<double>x(A.size());
-	for(int k = 0; k != A.size(); k++){
-		for(int l = k+1; l != A.size(); l++){
+	vector<vector<double>> c = A; 
+	vector<vector<double>> s = A;
+	//vector<double>x(A.size());
+	for(int k = 0; k < A.size(); k++){
+		for(int l = k+1; l < A.size(); l++){
 			c[k][l] = A[k][k] / ( sqrt( pow(A[k][k], 2) + pow(A[l][k],2)));
 			s[k][l] = A[l][k] / ( sqrt( pow(A[k][k], 2) + pow(A[l][k],2)));
-			
+			cout << "c[" << k << "][" << l << "] = " << "A[" << k << "][" << k << "] /  A[" << k << "][" << k << "] + A[" << l << "][" << k << "]" << endl;  
+			cout << "s[" << k << "][" << l << "] = " << "A[" << l << "][" << k << "] /  A[" << k << "][" << k << "] + A[" << l << "][" << k << "]" << endl;
 			//a[][] * T[][]
 			A[k][k] = A[k][k]*c[k][l] + A[l][k]*s[k][l];
 			A[k][l] = A[k][l]*c[k][l] + A[l][l]*s[k][l];
 			A[l][k] = -A[k][k]*s[k][l] + A[l][k]*c[k][l];
 			A[l][l] = -A[k][l]*s[k][l] + A[l][l]*c[k][l];
-
-			// Вектор свободных членов умножается на T[k][l]
+			cout << "A[" << k << "][" << k << "] = " << "A[" << k << "][" << k << "] * c[" << k << "][" << l << "] + A[" << l << "][" << k << "] * s[" << k << "][" << l << "]" << endl; 
+			cout << "A[" << k << "][" << l << "] = " << "A[" << k << "][" << l << "] * c[" << k << "][" << l << "] + A[" << l << "][" << l << "] * s[" << k << "][" << l << "]" << endl; 
+			cout << "A[" << l << "][" << k << "] = " << "-A[" << k << "][" << k << "] * s[" << k << "][" << l << "] + A[" << l << "][" << k << "] * c[" << k << "][" << l << "]" << endl; 
+			cout << "A[" << l << "][" << l << "] = " << "-A[" << k << "][" << l << "] * s[" << k << "][" << l << "] + A[" << l << "][" << l << "] * c[" << k << "][" << l << "]" << endl; 
+			/*// Вектор свободных членов умножается на T[k][l]
 			B[k] = B[k]*c[k][l] + B[l]*s[k][l];
-			B[l] = -B[k]*s[k][l] + B[l]*c[k][l];
+			B[l] = -B[k]*s[k][l] + B[l]*c[k][l];*/
 		}
-	}
+	}/*
 	double h;
 	x[A.size()-1] = (B[A.size()-1]/A[A.size()-1][A.size()-1]);
 	for(int l = (A.size()-1); l >= 1; l--)
@@ -64,7 +69,7 @@ void QR(vector<vector<double>>A, vector<double> B)
 		for(int k = (l+1); k <= A.size(); k++){
 			x[l-1] = h/A[l-1][l-1];
 		}
-	}
+	}*/
 }
 
 void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B){
