@@ -3,8 +3,7 @@
 #include "data.h"
 #include <iostream>
 void LU(vector <vector <double>> A, vector <vector <double>> &L, 
-        vector <vector <double>> &U)
-{
+        vector <vector <double>> &U){
     U=A;
 
     for(int i = 0; i < U.size(); i++){
@@ -12,8 +11,7 @@ void LU(vector <vector <double>> A, vector <vector <double>> &L,
 			L[j][i]=A[j][i]/U[i][i];
 		}
 	}
-    for(int k = 1; k < U.size(); k++)
-    {
+    for(int k = 1; k < U.size(); k++){
         for(int i = k-1; i < U.size(); i++){
             for(int j = i; j < U.size(); j++){
 				L[j][i]=U[j][i]/U[i][i];
@@ -28,39 +26,39 @@ void LU(vector <vector <double>> A, vector <vector <double>> &L,
 }
 
 void proisv(vector <vector <double>> A, vector <vector <double>> B, 
-            vector <vector <double>> &R)
-{
+            vector <vector <double>> &R){
     for(int i = 0; i < A.size(); i++)
         for(int j = 0; j < A.size(); j++)
             for(int k = 0; k < A.size(); k++)
                 R[i][j] += A[i][k] * B[k][j];
 }
 
-void QR(vector<vector<double>>A/*, vector<double> B*/)
-{
-	vector<vector<double>> c = A; 
-	vector<vector<double>> s = A;
-	//vector<double>x(A.size());
-	for(int k = 0; k < A.size(); k++){
+void QR(vector<vector<double>>A, vector<double> B){
+	vector<vector<double>>R = A;
+	double akk, alk, akl, all, c ,s;
+	for(int k = 0; k < A.size()-1; k++){
 		for(int l = k+1; l < A.size(); l++){
-			c[k][l] = A[k][k] / ( sqrt( pow(A[k][k], 2) + pow(A[l][k],2)));
-			s[k][l] = A[l][k] / ( sqrt( pow(A[k][k], 2) + pow(A[l][k],2)));
-			cout << "c[" << k << "][" << l << "] = " << "A[" << k << "][" << k << "] /  A[" << k << "][" << k << "] + A[" << l << "][" << k << "]" << endl;  
-			cout << "s[" << k << "][" << l << "] = " << "A[" << l << "][" << k << "] /  A[" << k << "][" << k << "] + A[" << l << "][" << k << "]" << endl;
+			c = A[k][k] / ( sqrt( pow(A[k][k], 2) + pow(A[l][k],2)));
+			s = A[l][k] / ( sqrt( pow(A[k][k], 2) + pow(A[l][k],2)));
+			//cout << "c = " << "A[" << k << "][" << k << "] /  A[" << k << "][" << k << "] + A[" << l << "][" << k << "]" << endl << endl << endl << endl;  
+			//cout << "s = " << "A[" << l << "][" << k << "] /  A[" << k << "][" << k << "] + A[" << l << "][" << k << "]" << endl << endl << endl << endl;
 			//a[][] * T[][]
-			A[k][k] = A[k][k]*c[k][l] + A[l][k]*s[k][l];
-			A[k][l] = A[k][l]*c[k][l] + A[l][l]*s[k][l];
-			A[l][k] = -A[k][k]*s[k][l] + A[l][k]*c[k][l];
-			A[l][l] = -A[k][l]*s[k][l] + A[l][l]*c[k][l];
-			cout << "A[" << k << "][" << k << "] = " << "A[" << k << "][" << k << "] * c[" << k << "][" << l << "] + A[" << l << "][" << k << "] * s[" << k << "][" << l << "]" << endl; 
-			cout << "A[" << k << "][" << l << "] = " << "A[" << k << "][" << l << "] * c[" << k << "][" << l << "] + A[" << l << "][" << l << "] * s[" << k << "][" << l << "]" << endl; 
-			cout << "A[" << l << "][" << k << "] = " << "-A[" << k << "][" << k << "] * s[" << k << "][" << l << "] + A[" << l << "][" << k << "] * c[" << k << "][" << l << "]" << endl; 
-			cout << "A[" << l << "][" << l << "] = " << "-A[" << k << "][" << l << "] * s[" << k << "][" << l << "] + A[" << l << "][" << l << "] * c[" << k << "][" << l << "]" << endl; 
-			/*// Вектор свободных членов умножается на T[k][l]
-			B[k] = B[k]*c[k][l] + B[l]*s[k][l];
-			B[l] = -B[k]*s[k][l] + B[l]*c[k][l];*/
+			akk=R[k][k];  alk=R[l][k];  akl=R[k][l];  all=R[l][l];
+			R[k][k] =  akk*c + alk*s;
+		    R[k][l] =  akl*c + all*s;
+		    R[l][k] = -akk*s + alk*c;
+		    R[l][l] = -akl*s + all*c;
+		    cout << "A[" << k << "][" << k << "] = " << "A[" << k << "][" << k << "] * c[" << k << "][" << l << "] + A[" << l << "][" << k << "] * s[" << k << "][" << l << "] = " <<   akk <<" * " << c << " + " << alk <<" * " << s << " = " << akk*c + alk*s <<endl; 
+			cout << "A[" << k << "][" << l << "] = " << "A[" << k << "][" << l << "] * c[" << k << "][" << l << "] + A[" << l << "][" << l << "] * s[" << k << "][" << l << "] = " << akl*c + all*s << endl; 
+			cout << "A[" << l << "][" << k << "] = " << "-A[" << k << "][" << k << "] * s[" << k << "][" << l << "] + A[" << l << "][" << k << "] * c[" << k << "][" << l << "] = " << -akk <<" * " << c << " + " << alk <<" * " << s << " = " << -akk*s + alk*c << endl; 
+			cout << "A[" << l << "][" << l << "] = " << "-A[" << k << "][" << l << "] * s[" << k << "][" << l << "] + A[" << l << "][" << l << "] * c[" << k << "][" << l << "]" << -akl*s + all*c << endl; 
+			// Вектор свободных членов умножается на T[k][l]
+			B[k] = B[k]*c + B[l]*s;
+			B[l] = -B[k]*s + B[l]*c;
 		}
-	}/*
+	}
+	show(R);
+	/*
 	double h;
 	x[A.size()-1] = (B[A.size()-1]/A[A.size()-1][A.size()-1]);
 	for(int l = (A.size()-1); l >= 1; l--)
@@ -72,30 +70,24 @@ void QR(vector<vector<double>>A/*, vector<double> B*/)
 	}*/
 }
 
-void LU_slau(vector<vector<double>>L, vector<vector<double>>U, vector<double>B){
-
-	vector<double>x, y;
-	vector<vector<double>> Ly = L, Ux = U;
-	
-	for(int i = 0; i < L.size(); i++){
-		for(int j = 0; j < L.size(); j++){
-			Ly[j][i] = B[j];
+vector<double> Isolve(vector<vector<double>>A, vector<double>B){
+	vector<double>x;
+	vector<vector<double>> Ax = A;
+	if(determ(A) != 0){
+		for(int i = 0; i < A.size(); i++){
+			for(int j = 0; j < A.size(); j++){
+				Ax[j][i] = B[j];
+			}
+			x.push_back(determ(Ax)/determ(A));
+			Ax = A;
 		}
-		x.push_back(determ(Ly)/determ(L));
-		Ly = L;
+		return x;
 	}
-	for(int i = 0; i < L.size(); i++){
-		for(int j = 0; j < L.size(); j++){
-			Ux[j][i] = x[j];
-		}
-		y.push_back(determ(Ux)/determ(U));
-		Ux = U;
+	else{
+		cout << "Determ initial matrix = 0\n";
+		for(int i = 0; i < A.size(); i++) x.push_back(0);
+		return x;
 	}
-
-	cout << "decision Ly = B" << endl;
-	show(x);
-	cout << "decision Ux = y" << endl;
-	show(y);
 }
 
 double determ(vector<vector<double>>a){

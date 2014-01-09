@@ -5,19 +5,15 @@
 #define FILE_MATRIX_A "../matrixA.txt"
 #define FILE_MATRIX_A1 "../matrixA1.txt"
 #define FILE_MATRIX_B "../matrixB.txt"
+#define FILE_MATRIX_B1 "../matrixB1.txt"
 
-int main()
-{
-	vector<vector<double>> A, A1, L(MATRIX_SIZE), U(MATRIX_SIZE), R(MATRIX_SIZE);
-	vector<double>B;
-	double dt;
-	A = ReadFromFile(FILE_MATRIX_A);
-	A1 = ReadFromFile(FILE_MATRIX_A1);
-	B = ReadFromFile(FILE_MATRIX_B, 1);
-	for(int i = 0; i < MATRIX_SIZE; i++)
-    {
-        for(int j = 0; j < MATRIX_SIZE; j++)
-        {
+int main(){
+	vector<vector<double>> A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
+	vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), x, y, B1 = ReadFromFile(FILE_MATRIX_B1, 0);
+	vector<vector<double>>L(A.size()), U(A.size()), R(A.size());
+
+	for(int i = 0; i < A.size(); i++){
+        for(int j = 0; j < A.size(); j++){
 			L[i].push_back(0);
             U[i].push_back(0);
             R[i].push_back(0);
@@ -33,11 +29,25 @@ int main()
     proisv(L,U,R);
     cout << "L*U matrix" << endl;
     show(R);
+
 	cout << "B: " << endl;
 	show(B);
+
 	cout << "decision Ax = B" << endl;
-	LU_slau(L, U, B);
-	QR(A1);
+	show(Isolve(A,B));
+
+	cout << "decision Ly = B" << endl;
+	y = Isolve(L,B);
+	show(y);
+
+	cout << "decision Ux = y" << endl;
+	x = Isolve(U, y);
+	show(x);
+	cout << "A1:\n";
+	show(A1);
+	cout << "A=QR" << endl;
+	QR(A1, B1);
+	//show(A1);
 	system("pause");
     return 0;
 }
