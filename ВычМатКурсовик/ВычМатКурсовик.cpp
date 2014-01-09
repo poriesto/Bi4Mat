@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "calcmd.h"
 #include "Data.h"
-#define MATRIX_SIZE 4
 #define FILE_MATRIX_A "../matrixA.txt"
 #define FILE_MATRIX_A1 "../matrixA1.txt"
 #define FILE_MATRIX_B "../matrixB.txt"
@@ -9,7 +8,7 @@
 
 int main(){
 	vector<vector<double>> A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
-	vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), x, y, B1 = ReadFromFile(FILE_MATRIX_B1, 0);
+	vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), B1 = ReadFromFile(FILE_MATRIX_B1, 0), x, y;
 	vector<vector<double>>L(A.size()), U(A.size()), R(A.size());
 
 	for(int i = 0; i < A.size(); i++){
