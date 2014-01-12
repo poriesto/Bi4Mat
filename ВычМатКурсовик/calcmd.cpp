@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "calcmd.h"
 #include "data.h"
-#include <iostream>
+
 void LU(vector <vector <double>> A, vector <vector <double>> &L, 
         vector <vector <double>> &U){
     U=A;
@@ -33,46 +33,10 @@ void proisv(vector <vector <double>> A, vector <vector <double>> B,
                 R[i][j] += A[i][k] * B[k][j];
 }
 
-void QR(vector<vector<double>>A, vector<double> B){
-	vector<vector<double>>R = A;
-	double akk, alk, akl, all, c ,s;
-	for(int k = 0; k < A.size()-1; k++){
-		for(int l = k+1; l < A.size(); l++){
-			c = A[k][k] / ( sqrt( pow(A[k][k], 2) + pow(A[l][k],2)));
-			s = A[l][k] / ( sqrt( pow(A[k][k], 2) + pow(A[l][k],2)));
-			//cout << "c = " << "A[" << k << "][" << k << "] /  A[" << k << "][" << k << "] + A[" << l << "][" << k << "]" << endl << endl << endl << endl;  
-			//cout << "s = " << "A[" << l << "][" << k << "] /  A[" << k << "][" << k << "] + A[" << l << "][" << k << "]" << endl << endl << endl << endl;
-			//a[][] * T[][]
-			akk=R[k][k];  alk=R[l][k];  akl=R[k][l];  all=R[l][l];
-			R[k][k] =  akk*c + alk*s;
-		    R[k][l] =  akl*c + all*s;
-		    R[l][k] = -akk*s + alk*c;
-		    R[l][l] = -akl*s + all*c;
-		    cout << "A[" << k << "][" << k << "] = " << "A[" << k << "][" << k << "] * c[" << k << "][" << l << "] + A[" << l << "][" << k << "] * s[" << k << "][" << l << "] = " <<   akk <<" * " << c << " + " << alk <<" * " << s << " = " << akk*c + alk*s <<endl; 
-			cout << "A[" << k << "][" << l << "] = " << "A[" << k << "][" << l << "] * c[" << k << "][" << l << "] + A[" << l << "][" << l << "] * s[" << k << "][" << l << "] = " << akl*c + all*s << endl; 
-			cout << "A[" << l << "][" << k << "] = " << "-A[" << k << "][" << k << "] * s[" << k << "][" << l << "] + A[" << l << "][" << k << "] * c[" << k << "][" << l << "] = " << -akk <<" * " << c << " + " << alk <<" * " << s << " = " << -akk*s + alk*c << endl; 
-			cout << "A[" << l << "][" << l << "] = " << "-A[" << k << "][" << l << "] * s[" << k << "][" << l << "] + A[" << l << "][" << l << "] * c[" << k << "][" << l << "]" << -akl*s + all*c << endl; 
-			// Вектор свободных членов умножается на T[k][l]
-			B[k] = B[k]*c + B[l]*s;
-			B[l] = -B[k]*s + B[l]*c;
-		}
-	}
-	show(R);
-	/*
-	double h;
-	x[A.size()-1] = (B[A.size()-1]/A[A.size()-1][A.size()-1]);
-	for(int l = (A.size()-1); l >= 1; l--)
-	{
-		h = B[l-1];
-		for(int k = (l+1); k <= A.size(); k++){
-			x[l-1] = h/A[l-1][l-1];
-		}
-	}*/
-}
-
 vector<double> Isolve(vector<vector<double>>A, vector<double>B){
 	vector<double>x;
 	vector<vector<double>> Ax = A;
+
 	if(determ(A) != 0){
 		for(int i = 0; i < A.size(); i++){
 			for(int j = 0; j < A.size(); j++){

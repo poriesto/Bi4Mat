@@ -6,11 +6,12 @@
 #define FILE_MATRIX_B "../matrixB.txt"
 #define FILE_MATRIX_B1 "../matrixB1.txt"
 
-int main(){
+int _tmain(int argc, _TCHAR* argv[]){
+
 	vector<vector<double>> A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
 	vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), B1 = ReadFromFile(FILE_MATRIX_B1, 0), x, y;
 	vector<vector<double>>L(A.size()), U(A.size()), R(A.size());
-
+	
 	for(int i = 0; i < A.size(); i++){
         for(int j = 0; j < A.size(); j++){
 			L[i].push_back(0);
@@ -31,26 +32,15 @@ int main(){
 
 	cout << "B: " << endl;
 	show(B);
-
 	cout << "decision Ax = B" << endl;
 	show(Isolve(A,B));
-
 	cout << "decision Ly = B" << endl;
 	y = Isolve(L,B);
 	show(y);
-
 	cout << "decision Ux = y" << endl;
 	x = Isolve(U, y);
 	show(x);
-	cout << "A1:\n";
-	show(A1);
-	cout << "A=QR" << endl;
-	QR(A1, B1);
-	//show(A1);
+
 	system("pause");
     return 0;
 }
-
-
-
-
