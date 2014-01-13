@@ -4,7 +4,6 @@ using namespace std;
 
 void LU(vector <vector <double>> A, vector <vector <double>> &L, 
         vector <vector <double>> &U);
-void proisv(vector <vector <double>> A, vector <vector <double>> B, 
-            vector <vector <double>> &R);
-double determ(vector<vector<double>>matrix);
+vector<vector<double>> Multiplication(vector <vector <double>> A, vector <vector <double>> B);
+double Determinant(vector<vector<double>>matrix);
 vector<double>Isolve(vector<vector<double>>A, vector<double>B);

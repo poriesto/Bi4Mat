@@ -10,15 +10,8 @@ int _tmain(int argc, _TCHAR* argv[]){
 
 	vector<vector<double>> A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
 	vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), B1 = ReadFromFile(FILE_MATRIX_B1, 0), x, y;
-	vector<vector<double>>L(A.size()), U(A.size()), R(A.size());
+	vector<vector<double>>L(A.size()), U(A.size()), R;
 	
-	for(int i = 0; i < A.size(); i++){
-        for(int j = 0; j < A.size(); j++){
-			L[i].push_back(0);
-            U[i].push_back(0);
-            R[i].push_back(0);
-       }
-    }
 	LU(A,L,U);
     cout << "Matrix A" << endl;
 	show(A);
@@ -26,7 +19,7 @@ int _tmain(int argc, _TCHAR* argv[]){
     show(U);
     cout << "L matrix" << endl;
     show(L);
-    proisv(L,U,R);
+	R = Multiplication(L,U);
     cout << "L*U matrix" << endl;
     show(R);
 
