@@ -33,7 +33,8 @@ int _tmain(int argc, _TCHAR* argv[]){
 	cout << "decision Ux = y" << endl;
 	x = Isolve(U, y);
 	show(x);
-
+	cout << "Transpouse matrix X: " << endl;
+	show(Transpose_Matrix(R));
 	system("pause");
     return 0;
 }

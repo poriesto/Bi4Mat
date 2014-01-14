@@ -12,7 +12,6 @@ void LU(vector <vector <double>> A, vector <vector <double>> &L,
             U[i].push_back(0);
        }
     }
-
     for(int i = 0; i < U.size(); i++){
         for(int j = i; j < U.size(); j++){
 			L[j][i]=A[j][i]/U[i][i];
@@ -29,7 +28,6 @@ void LU(vector <vector <double>> A, vector <vector <double>> &L,
 			}
 		}
     }
-
 }
 
 vector<vector<double>> Multiplication(vector <vector <double>> A, vector <vector <double>> B){
@@ -40,7 +38,6 @@ vector<vector<double>> Multiplication(vector <vector <double>> A, vector <vector
             R[i].push_back(0);
        }
     }
-
     for(int i = 0; i < A.size(); i++)
         for(int j = 0; j < A.size(); j++)
             for(int k = 0; k < A.size(); k++)
@@ -84,7 +81,6 @@ double Determinant(vector<vector<double>>a){
 		p++;
 		t++;
 	}
- 
 	for (k=i+1; k<n; k++){
 		kst=a[k][i]/a[i][i];
 		for(j=0; j<n; j++)
@@ -103,20 +99,16 @@ vector<vector<double>> L_LT_decomposition(vector< vector<double> > &A_matrix) {
 	
 		for (i = 0; i < A_matrix.size(); i++) {
 			for (j = 0; j < A_matrix.size(); j++) {
-	
 				if (i > j) {
 					for (k = 0; k <= j-1; k++)
 						sum = sum + L_matrix[i][k] * L_matrix[j][k];
-	
-					L_matrix[i][j] = (A_matrix[i][j] - sum)/L_matrix[j][j];
-					sum = 0;
+						L_matrix[i][j] = (A_matrix[i][j] - sum)/L_matrix[j][j];
+						sum = 0;
 				}
-	
 				else if (i == j) {
 					for (k = 0; k <= i-1; k++)
 						sum = sum + L_matrix[i][k] * L_matrix[i][k];
-	
-					L_matrix[i][i] = sqrt(A_matrix[i][i] - sum);
+						L_matrix[i][i] = sqrt(A_matrix[i][i] - sum);
 					sum = 0;
 				}
 				else
@@ -126,16 +118,26 @@ vector<vector<double>> L_LT_decomposition(vector< vector<double> > &A_matrix) {
 		return L_matrix;
 }
 	
-vector< vector<double> > Transpose_Matrix(vector< vector<double> > &matrix) {
+vector<vector<double>> Transpose_Matrix(vector<vector<double>> &matrix) {
 		int i, j;
 		double tmp;
 	
 		for (i = 0; i < matrix.size(); i++) {
 			for (j = 0; j < i; j++) {
 				tmp = matrix[i][j];
-					matrix[i][j] = matrix[j][i];
-					matrix[j][i] = tmp;
+				matrix[i][j] = matrix[j][i];
+				matrix[j][i] = tmp;
 			}
 		}
 		return matrix;
+}
+
+void QR(vector <vector <double>> A, vector <vector <double>> &Q, 
+        vector <vector <double>> &R){
+	for(int i = 0; i < A.size(); i++){
+        for(int j = 0; j < A.size(); j++){
+			Q[i].push_back(0);
+            R[i].push_back(0);
+       }
+    }
 }

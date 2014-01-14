@@ -9,3 +9,4 @@ double Determinant(vector<vector<double>>matrix);
 vector<double>Isolve(vector<vector<double>>A, vector<double>B);
 vector<vector<double>> L_LT_decomposition(vector< vector<double> > &A_matrix);
 vector<vector<double>> Transpose_Matrix(vector< vector<double> > &matrix);
+void QR(vector<vector<double>>A, vector<vector<double>>&Q, vector<vector<double>>&R);
