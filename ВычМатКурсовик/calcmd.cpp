@@ -91,15 +91,13 @@ double Determinant(vector<vector<double>>a){
 			a[k][j]-=a[i][j]*kst;
 		}
 	}
- 
 	kst=pow(-1,p);
 	for(i=0; i<n; i++) kst*=a[i][i];
 	return kst;
 }
 
-vector< vector<double> > L_LT_decomposition(vector< vector<double> > &A_matrix) {
-		vector< vector<double> > L_matrix(A_matrix.size(), vector<double>(A_matrix.size()));
-
+vector<vector<double>> L_LT_decomposition(vector< vector<double> > &A_matrix) {
+		vector<vector<double>> L_matrix(A_matrix.size(), vector<double>(A_matrix.size()));
 		int i = 0, j = 0, k = 0;
 		double sum = 0;
 	
