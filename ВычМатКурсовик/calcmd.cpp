@@ -96,3 +96,48 @@ double Determinant(vector<vector<double>>a){
 	for(i=0; i<n; i++) kst*=a[i][i];
 	return kst;
 }
+
+vector< vector<double> > L_LT_decomposition(vector< vector<double> > &A_matrix) {
+		vector< vector<double> > L_matrix(A_matrix.size(), vector<double>(A_matrix.size()));
+
+		int i = 0, j = 0, k = 0;
+		double sum = 0;
+	
+		for (i = 0; i < A_matrix.size(); i++) {
+			for (j = 0; j < A_matrix.size(); j++) {
+	
+				if (i > j) {
+					for (k = 0; k <= j-1; k++)
+						sum = sum + L_matrix[i][k] * L_matrix[j][k];
+	
+					L_matrix[i][j] = (A_matrix[i][j] - sum)/L_matrix[j][j];
+					sum = 0;
+				}
+	
+				else if (i == j) {
+					for (k = 0; k <= i-1; k++)
+						sum = sum + L_matrix[i][k] * L_matrix[i][k];
+	
+					L_matrix[i][i] = sqrt(A_matrix[i][i] - sum);
+					sum = 0;
+				}
+				else
+					L_matrix[i][j] = 0;
+			}
+		}
+		return L_matrix;
+}
+	
+vector< vector<double> > Transpose_Matrix(vector< vector<double> > &matrix) {
+		int i, j;
+		double tmp;
+	
+		for (i = 0; i < matrix.size(); i++) {
+			for (j = 0; j < i; j++) {
+				tmp = matrix[i][j];
+					matrix[i][j] = matrix[j][i];
+					matrix[j][i] = tmp;
+			}
+		}
+		return matrix;
+}
