@@ -45,6 +45,40 @@ vector<vector<double>> Multiplication(vector <vector <double>> A, vector <vector
 	return R;
 }
 
+vector<vector<double>>Multiplicaiton(vector<vector<double>>A, double B){
+    vector<vector<double>>C(A.size());
+    
+    for(int i = 0; i < C.size(); i++){
+        for(int j = 0; j < C.size(); j++){
+            R[i].push_back(0);
+        }
+    }
+    
+    for(int i = 0; i < A.size(); i++){
+        for(int j = 0; j < A.size(); j++){
+            C[i][j] = A[i][j]*B; 
+        }
+    }
+    return R;
+}
+
+vector<vector<double>>Summary(vector <vector <double>> A, vector <vector <double>> B){
+    vector<vector<double>>C(A.size());
+    
+    for(int i = 0; i < C.size(); i++){
+        for(int j = 0; j < C.size(); j++){
+            R[i].push_back(0);
+        }
+    }
+    
+    for(int i = 0; i < c.size(); i++){
+        for(int j = 0; j < c.size(); j++){
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+    return C;
+}
+
 vector<double> Isolve(vector<vector<double>>A, vector<double>B){
 	vector<double>x;
 	vector<vector<double>> Ax = A;
