@@ -50,7 +50,7 @@ vector<vector<double>>Multiplicaiton(vector<vector<double>>A, double B){
     
     for(int i = 0; i < C.size(); i++){
         for(int j = 0; j < C.size(); j++){
-            R[i].push_back(0);
+			C[i].push_back(0);
         }
     }
     
@@ -59,7 +59,7 @@ vector<vector<double>>Multiplicaiton(vector<vector<double>>A, double B){
             C[i][j] = A[i][j]*B; 
         }
     }
-    return R;
+    return C;
 }
 
 vector<vector<double>>Summary(vector <vector <double>> A, vector <vector <double>> B){
@@ -67,12 +67,12 @@ vector<vector<double>>Summary(vector <vector <double>> A, vector <vector <double
     
     for(int i = 0; i < C.size(); i++){
         for(int j = 0; j < C.size(); j++){
-            R[i].push_back(0);
+            C[i].push_back(0);
         }
     }
     
-    for(int i = 0; i < c.size(); i++){
-        for(int j = 0; j < c.size(); j++){
+    for(int i = 0; i < C.size(); i++){
+        for(int j = 0; j < C.size(); j++){
             C[i][j] = A[i][j] + B[i][j];
         }
     }
