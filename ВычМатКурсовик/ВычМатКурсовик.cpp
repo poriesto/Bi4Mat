@@ -1,4 +1,4 @@
-//#include "stdafx.h"
+#include "stdafx.h"
 #include "calcmd.h"
 #include "Data.h"
 #define FILE_MATRIX_A "../matrixA.txt"
@@ -35,5 +35,6 @@ int _tmain(){
 	show(x);
 	std::cout << "Transpouse matrix X: " << std::endl;
 	show(Transpose_Matrix(R));
+	system("pause");
     return 0;
 }

@@ -1,9 +1,9 @@
-//g++ helloCloud9.cc -o helloCloud9#include "stdafx.h"
+#include "stdafx.h"
 #include "calcmd.h"
 #include "data.h"
 
-void LU(vector <vector <double>> A, vector <vector <double>> &L, 
-        vector <vector <double>> &U){
+void LU(std::vector<std::vector<double>> A, std::vector<std::vector<double>> &L, 
+        std::vector<std::vector<double>>&U){
     U=A;
 
 	for(int i = 0; i < A.size(); i++){
@@ -30,8 +30,8 @@ void LU(vector <vector <double>> A, vector <vector <double>> &L,
     }
 }
 
-vector<vector<double>> Multiplication(vector <vector <double>> A, vector <vector <double>> B){
-	vector<vector<double>>R(A.size());
+std::vector<std::vector<double>> Multiplication(std::vector<std::vector<double>>A, std::vector<std::vector <double>> B){
+	std::vector<std::vector<double>>R(A.size());
 		
 	for(int i = 0; i < A.size(); i++){
         for(int j = 0; j < A.size(); j++){
@@ -45,8 +45,8 @@ vector<vector<double>> Multiplication(vector <vector <double>> A, vector <vector
 	return R;
 }
 
-vector<vector<double>>Multiplicaiton(vector<vector<double>>A, double B){
-    vector<vector<double>>C(A.size());
+std::vector<std::vector<double>>Multiplicaiton(std::vector<std::vector<double>>A, double B){
+    std::vector<std::vector<double>>C(A.size());
     
     for(int i = 0; i < C.size(); i++){
         for(int j = 0; j < C.size(); j++){
@@ -62,8 +62,8 @@ vector<vector<double>>Multiplicaiton(vector<vector<double>>A, double B){
     return C;
 }
 
-vector<vector<double>>Summary(vector <vector <double>> A, vector <vector <double>> B){
-    vector<vector<double>>C(A.size());
+std::vector<std::vector<double>>Summary(std::vector<std::vector<double>>A, std::vector<std::vector<double>> B){
+    std::vector<std::vector<double>>C(A.size());
     
     for(int i = 0; i < C.size(); i++){
         for(int j = 0; j < C.size(); j++){
@@ -79,9 +79,9 @@ vector<vector<double>>Summary(vector <vector <double>> A, vector <vector <double
     return C;
 }
 
-vector<double> Isolve(vector<vector<double>>A, vector<double>B){
-	vector<double>x;
-	vector<vector<double>> Ax = A;
+std::vector<double>Isolve(std::vector<std::vector<double>>A, std::vector<double>B){
+	std::vector<double>x;
+	std::vector<std::vector<double>> Ax = A;
 
 	if(Determinant(A) != 0){
 		for(int i = 0; i < A.size(); i++){
@@ -94,13 +94,13 @@ vector<double> Isolve(vector<vector<double>>A, vector<double>B){
 		return x;
 	}
 	else{
-		cout << "determinant initial matrix = 0\n";
+		std::cout << "determinant initial matrix = 0\n";
 		for(int i = 0; i < A.size(); i++) x.push_back(0);
 		return x;
 	}
 }
 
-double Determinant(vector<vector<double>>a){
+double Determinant(std::vector<std::vector<double>>a){
 	int p=0, i, j, t, k;
 	double kst = 0;
 	int n = a.size();
@@ -126,8 +126,8 @@ double Determinant(vector<vector<double>>a){
 	return kst;
 }
 
-vector<vector<double>> L_LT_decomposition(vector< vector<double> > &A_matrix) {
-		vector<vector<double>> L_matrix(A_matrix.size(), vector<double>(A_matrix.size()));
+std::vector<std::vector<double>> L_LT_decomposition(std::vector<std::vector<double> > &A_matrix) {
+		std::vector<std::vector<double>>L_matrix(A_matrix.size(), std::vector<double>(A_matrix.size()));
 		int i = 0, j = 0, k = 0;
 		double sum = 0;
 	
@@ -152,7 +152,7 @@ vector<vector<double>> L_LT_decomposition(vector< vector<double> > &A_matrix) {
 		return L_matrix;
 }
 	
-vector<vector<double>> Transpose_Matrix(vector<vector<double>> &matrix) {
+std::vector<std::vector<double>>Transpose_Matrix(std::vector<std::vector<double>> &matrix) {
 		int i, j;
 		double tmp;
 	
@@ -166,8 +166,8 @@ vector<vector<double>> Transpose_Matrix(vector<vector<double>> &matrix) {
 		return matrix;
 }
 
-void QR(vector <vector <double>> A, vector <vector <double>> &Q, 
-        vector <vector <double>> &R){
+void QR(std::vector<std::vector<double>>A, std::vector<std::vector<double>>&Q, 
+        std::vector<std::vector<double>>&R){
 	for(int i = 0; i < A.size(); i++){
         for(int j = 0; j < A.size(); j++){
 			Q[i].push_back(0);
