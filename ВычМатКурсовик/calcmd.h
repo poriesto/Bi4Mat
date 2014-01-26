@@ -1,17 +1,16 @@
 #include <vector>
 #include <math.h>
-using namespace std;
 
 //Разложения матриц
-void LU(vector <vector <double>> A, vector <vector <double>> &L, 
-        vector <vector <double>> &U);
-vector<vector<double>> L_LT_decomposition(vector< vector<double> > &A_matrix);
-void QR(vector<vector<double>>A, vector<vector<double>>&Q, vector<vector<double>>&R);
+void LU(std::vector<std::vector<double>> A, std::vector<std::vector<double>>&L, 
+        std::vector<std::vector<double>>&U);
+std::vector<std::vector<double>> L_LT_decomposition(std::vector<std::vector<double>> &A_matrix);
+void QR(std::vector<std::vector<double>>A, std::vector<std::vector<double>>&Q, std::vector<std::vector<double>>&R);
 //Действия над матрицами
-vector<vector<double>>Summary(vector <vector <double>> A, vector <vector <double>> B);
-vector<vector<double>> Multiplication(vector <vector <double>> A, vector <vector <double>> B);
-vector<vector<double>>Multiplicaiton(vector<vector<double>>A, double B);
-vector<vector<double>> Transpose_Matrix(vector< vector<double> > &matrix);
-double Determinant(vector<vector<double>>matrix);
+std::vector<std::vector<double>>Summary(std::vector<std::vector<double>> A, std::vector<std::vector <double>> B);
+std::vector<std::vector<double>> Multiplication(std::vector <std::vector <double>> A, std::vector<std::vector<double>> B);
+std::vector<std::vector<double>>Multiplicaiton(std::vector<std::vector<double>>A, double B);
+std::vector<std::vector<double>> Transpose_Matrix(std::vector<std::vector<double>> &matrix);
+double Determinant(std::vector<std::vector<double>>matrix);
 //решение СЛАУ
-vector<double>Isolve(vector<vector<double>>A, vector<double>B);
+std::vector<double>Isolve(std::vector<std::vector<double>>A, std::vector<double>B);

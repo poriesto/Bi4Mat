@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//g++ helloCloud9.cc -o helloCloud9#include "stdafx.h"
 #include "calcmd.h"
 #include "data.h"
 
