@@ -9,7 +9,8 @@
 
 #include <stdio.h>
 #include <tchar.h>
-
+#include "calcmd.h"
+#include "Data.h"
 
 
 // TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы

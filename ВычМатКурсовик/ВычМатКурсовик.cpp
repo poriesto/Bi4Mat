@@ -1,15 +1,12 @@
 #include "stdafx.h"
-#include "calcmd.h"
-#include "Data.h"
 #define FILE_MATRIX_A "../matrixA.txt"
 #define FILE_MATRIX_A1 "../matrixA1.txt"
 #define FILE_MATRIX_B "../matrixB.txt"
 #define FILE_MATRIX_B1 "../matrixB1.txt"
 
 int _tmain(){
-
-	std::vector<std::vector<double>> A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
-	std::vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), B1 = ReadFromFile(FILE_MATRIX_B1, 0), x, y;
+	std::vector<std::vector<double>>A(ReadFromFile(FILE_MATRIX_A)), A1(ReadFromFile(FILE_MATRIX_A1));
+	std::vector<double>B(ReadFromFile(FILE_MATRIX_B, 0)), B1(ReadFromFile(FILE_MATRIX_B1, 0));
 	std::vector<std::vector<double>>L(A.size()), U(A.size()), R;
 	
 	LU(A,L,U);
@@ -28,13 +25,10 @@ int _tmain(){
 	std::cout << "decision Ax = B" << std::endl;
 	show(Isolve(A,B));
 	std::cout << "decision Ly = B" << std::endl;
-	y = Isolve(L,B);
-	show(y);
+	show(Isolve(L,B));
 	std::cout << "decision Ux = y" << std::endl;
-	x = Isolve(U, y);
-	show(x);
-	std::cout << "Transpouse matrix X: " << std::endl;
-	show(Transpose_Matrix(R));
+	show(Isolve(U, Isolve(L,B)));
+
 	system("pause");
     return 0;
 }
