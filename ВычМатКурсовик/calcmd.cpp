@@ -1,4 +1,3 @@
-//#include "stdafx.h"
 #include "stdafx.h"
 
 void LU(std::vector<std::vector<double>> A, std::vector<std::vector<double>> &L, 
