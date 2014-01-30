@@ -1,29 +1,28 @@
 //#include "stdafx.h"
-#include "calcmd.h"
-#include "data.h"
+#include "stdafx.h"
 
 void LU(std::vector<std::vector<double>> A, std::vector<std::vector<double>> &L, 
         std::vector<std::vector<double>>&U){
     U=A;
 
-	for(int i = 0; i < A.size(); i++){
-        for(int j = 0; j < A.size(); j++){
+	for(int i = 0; i < (int)A.size(); i++){
+        for(int j = 0; j < (int)A.size(); j++){
 			L[i].push_back(0);
             U[i].push_back(0);
        }
     }
-    for(int i = 0; i < U.size(); i++){
-        for(int j = i; j < U.size(); j++){
+    for(int i = 0; i < (int)U.size(); i++){
+        for(int j = i; j < (int)U.size(); j++){
 			L[j][i]=A[j][i]/U[i][i];
 		}
 	}
-    for(int k = 1; k < U.size(); k++){
-        for(int i = k-1; i < U.size(); i++){
-            for(int j = i; j < U.size(); j++){
+    for(int k = 1; k < (int)U.size(); k++){
+        for(int i = k-1; i < (int)U.size(); i++){
+            for(int j = i; j < (int)U.size(); j++){
 				L[j][i]=U[j][i]/U[i][i];
 			}}
-        for(int i = k; i < U.size(); i++){
-            for(int j = k-1; j < U.size(); j++){
+        for(int i = k; i < (int)U.size(); i++){
+            for(int j = k-1; j < (int)U.size(); j++){
                 U[i][j]=U[i][j]-L[i][k-1]*U[k-1][j];
 			}
 		}
@@ -33,14 +32,14 @@ void LU(std::vector<std::vector<double>> A, std::vector<std::vector<double>> &L,
 std::vector<std::vector<double>> Multiplication(std::vector<std::vector<double>>A, std::vector<std::vector <double>> B){
 	std::vector<std::vector<double>>R(A.size());
 		
-	for(int i = 0; i < A.size(); i++){
-        for(int j = 0; j < A.size(); j++){
+	for(int i = 0; i < (int)A.size(); i++){
+        for(int j = 0; j < (int)A.size(); j++){
             R[i].push_back(0);
        }
     }
-    for(int i = 0; i < A.size(); i++)
-        for(int j = 0; j < A.size(); j++)
-            for(int k = 0; k < A.size(); k++)
+    for(int i = 0; i < (int)A.size(); i++)
+        for(int j = 0; j < (int)A.size(); j++)
+            for(int k = 0; k < (int)A.size(); k++)
                 R[i][j] += A[i][k] * B[k][j];
 	return R;
 }
@@ -48,14 +47,14 @@ std::vector<std::vector<double>> Multiplication(std::vector<std::vector<double>>
 std::vector<std::vector<double>>Multiplicaiton(std::vector<std::vector<double>>A, double B){
     std::vector<std::vector<double>>C(A.size());
     
-    for(int i = 0; i < C.size(); i++){
-        for(int j = 0; j < C.size(); j++){
+    for(int i = 0; i < (int)C.size(); i++){
+        for(int j = 0; j < (int)C.size(); j++){
 			C[i].push_back(0);
         }
     }
     
-    for(int i = 0; i < A.size(); i++){
-        for(int j = 0; j < A.size(); j++){
+    for(int i = 0; i < (int)A.size(); i++){
+        for(int j = 0; j < (int)A.size(); j++){
             C[i][j] = A[i][j]*B; 
         }
     }
@@ -65,14 +64,14 @@ std::vector<std::vector<double>>Multiplicaiton(std::vector<std::vector<double>>A
 std::vector<std::vector<double>>Summary(std::vector<std::vector<double>>A, std::vector<std::vector<double>> B){
     std::vector<std::vector<double>>C(A.size());
     
-    for(int i = 0; i < C.size(); i++){
-        for(int j = 0; j < C.size(); j++){
+    for(int i = 0; i < (int)C.size(); i++){
+        for(int j = 0; j < (int)C.size(); j++){
             C[i].push_back(0);
         }
     }
     
-    for(int i = 0; i < C.size(); i++){
-        for(int j = 0; j < C.size(); j++){
+    for(int i = 0; i < (int)C.size(); i++){
+        for(int j = 0; j < (int)C.size(); j++){
             C[i][j] = A[i][j] + B[i][j];
         }
     }
@@ -84,8 +83,8 @@ std::vector<double>Isolve(std::vector<std::vector<double>>A, std::vector<double>
 	std::vector<std::vector<double>> Ax = A;
 
 	if(Determinant(A) != 0){
-		for(int i = 0; i < A.size(); i++){
-			for(int j = 0; j < A.size(); j++){
+		for(int i = 0; i < (int)A.size(); i++){
+			for(int j = 0; j < (int)A.size(); j++){
 				Ax[j][i] = B[j];
 			}
 			x.push_back(Determinant(Ax)/Determinant(A));
@@ -95,7 +94,7 @@ std::vector<double>Isolve(std::vector<std::vector<double>>A, std::vector<double>
 	}
 	else{
 		std::cout << "determinant initial matrix = 0\n";
-		for(int i = 0; i < A.size(); i++) x.push_back(0);
+		for(int i = 0; i < (int)A.size(); i++) x.push_back(0);
 		return x;
 	}
 }
@@ -131,8 +130,8 @@ std::vector<std::vector<double>> L_LT_decomposition(std::vector<std::vector<doub
 		int i = 0, j = 0, k = 0;
 		double sum = 0;
 	
-		for (i = 0; i < A_matrix.size(); i++) {
-			for (j = 0; j < A_matrix.size(); j++) {
+		for (i = 0; i < (int)A_matrix.size(); i++) {
+			for (j = 0; j < (int)A_matrix.size(); j++) {
 				if (i > j) {
 					for (k = 0; k <= j-1; k++)
 						sum = sum + L_matrix[i][k] * L_matrix[j][k];
@@ -156,7 +155,7 @@ std::vector<std::vector<double>>Transpose_Matrix(std::vector<std::vector<double>
 		int i, j;
 		double tmp;
 	
-		for (i = 0; i < matrix.size(); i++) {
+		for (i = 0; i < (int)matrix.size(); i++) {
 			for (j = 0; j < i; j++) {
 				tmp = matrix[i][j];
 				matrix[i][j] = matrix[j][i];
@@ -168,8 +167,8 @@ std::vector<std::vector<double>>Transpose_Matrix(std::vector<std::vector<double>
 
 void QR(std::vector<std::vector<double>>A, std::vector<std::vector<double>>&Q, 
         std::vector<std::vector<double>>&R){
-	for(int i = 0; i < A.size(); i++){
-        for(int j = 0; j < A.size(); j++){
+	for(int i = 0; i < (int)A.size(); i++){
+        for(int j = 0; j < (int)A.size(); j++){
 			Q[i].push_back(0);
             R[i].push_back(0);
        }

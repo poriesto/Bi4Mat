@@ -1,5 +1,5 @@
 //#include "stdafx.h"
-#include "Data.h"
+#include "stdafx.h"
 
 std::vector<double> GetDoubleRow(std::string str){
 	std::vector<double> row;
@@ -66,18 +66,16 @@ std::vector<double>ReadFromFile(char *filename, int size){
 	return tm;
 }
 
-void show(std::vector<std::vector<double>>A)
-{
-    for(int i = 0; i < A.size(); i++){
-        for(int j = 0; j < A.size(); j++){
+void show(std::vector<std::vector<double>>A){
+    for(int i = 0; i < (int)A.size(); i++){
+        for(int j = 0; j < (int)A.size(); j++){
             std::cout <<" "<< A[i][j] << " ";
         }
         std::cout << std::endl;
     }
 }
 
-void show(std::vector<double>A)
-{
+void show(std::vector<double>A){
 	std::vector<double>::iterator iter = A.begin();
 	while(iter != A.end()){
 		std::cout << " " << *iter << "\n";
