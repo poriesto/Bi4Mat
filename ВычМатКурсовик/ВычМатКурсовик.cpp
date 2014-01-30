@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include "calcmd.h"
 #include "Data.h"
 #define FILE_MATRIX_A "../matrixA.txt"
@@ -8,9 +8,9 @@
 
 int _tmain(){
 
-	std::vector<std::vector<double>> A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
+	std::vector<std::vector<double> > A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
 	std::vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), B1 = ReadFromFile(FILE_MATRIX_B1, 0), x, y;
-	std::vector<std::vector<double>>L(A.size()), U(A.size()), R;
+	std::vector<std::vector<double> >L(A.size()), U(A.size()), R;
 	
 	LU(A,L,U);
     std::cout << "Matrix A" << std::endl;
@@ -35,6 +35,6 @@ int _tmain(){
 	show(x);
 	std::cout << "Transpouse matrix X: " << std::endl;
 	show(Transpose_Matrix(R));
-	system("pause");
+	//system("pause");
     return 0;
 }
