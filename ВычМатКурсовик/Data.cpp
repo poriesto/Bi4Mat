@@ -1,6 +1,5 @@
-//#include "stdafx.h"
+#include "stdafx.h"
 #include "Data.h"
-#include <stdlib.h>
 
 std::vector<double> GetDoubleRow(std::string str){
 	std::vector<double> row;
