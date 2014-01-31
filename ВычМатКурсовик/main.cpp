@@ -1,4 +1,3 @@
-//#include "stdafx.h"
 #include "Data.h"
 #include "calcmd.h"
 #define FILE_MATRIX_A "../matrixA.txt"
@@ -8,10 +7,10 @@
 
 int main(){
 
-	std::vector<std::vector<double> >A(ReadFromFile(FILE_MATRIX_A)), A1(ReadFromFile(FILE_MATRIX_A1));
-	std::vector<double>B(ReadFromFile(FILE_MATRIX_B, 0)), B1(ReadFromFile(FILE_MATRIX_B1, 0));
+	std::vector<std::vector<double> > A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
+	std::vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), B1 = ReadFromFile(FILE_MATRIX_B1, 0), x, y;
 	std::vector<std::vector<double> >L(A.size()), U(A.size()), R;
-	
+
 	LU(A,L,U);
     std::cout << "Matrix A" << std::endl;
 	show(A);
@@ -32,6 +31,5 @@ int main(){
 	std::cout << "decision Ux = y" << std::endl;
 	show(Isolve(U, Isolve(L,B)));
 
-	//system("pause");
     return 0;
 }
