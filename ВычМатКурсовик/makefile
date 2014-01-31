@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-Wall
+CFLAGS=-Wall -std=c++0x
 all:
 	$(CC) $(CFLAGS) -c Data.cpp -J obj/ -o obj/Data.o
 	$(CC) $(CFLAGS) -c calcmd.cpp -I obj/ -o obj/calcmd.o

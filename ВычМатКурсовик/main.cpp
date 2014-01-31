@@ -1,11 +1,10 @@
 #include "Data.h"
 #include "calcmd.h"
-#define FILE_MATRIX_A "../matrixA.txt"
-#define FILE_MATRIX_A1 "../matrixA1.txt"
-#define FILE_MATRIX_B "../matrixB.txt"
-#define FILE_MATRIX_B1 "../matrixB1.txt"
 
 int main(){
+    
+    std::string FILE_MATRIX_A = {"../matrixA.txt"};
+    std::string FILE_MATRIX_B = {"../matrixB.txt"};
     
 	std::vector<std::vector<double> > A(ReadFromFile(FILE_MATRIX_A));
 	std::vector<double>B = ReadFromFile(FILE_MATRIX_B, 0);

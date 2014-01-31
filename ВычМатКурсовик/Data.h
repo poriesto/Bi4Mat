@@ -5,7 +5,7 @@
 
 std::vector<double> GetDoubleRow(std::string str);
 double GetDoubleElement(std::string str);
-std::vector<std::vector<double> > ReadFromFile(char *filename);
-std::vector<double>ReadFromFile(char *filename, int size);
+std::vector<std::vector<double> > ReadFromFile(std::string &filename);
+std::vector<double>ReadFromFile(std::string &filename, int size);
 void show(std::vector<std::vector <double> > A);
 void show(std::vector<double> A);

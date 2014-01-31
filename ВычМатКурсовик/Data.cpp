@@ -36,13 +36,13 @@ double GetDoubleElement(std::string str){
 	return element;
 }
 
-std::vector<std::vector<double> > ReadFromFile(char *filename){
+std::vector<std::vector<double> > ReadFromFile(std::string &filename){
 	std::ifstream matrix;
 	std::vector<double> tm;
 	std::vector<std::vector<double> > A;
 	std::vector<double>::iterator iter = tm.begin();
 	std::string str;
-	matrix.open(filename);
+	matrix.open(filename.c_str());
 	if(matrix.is_open()){
 		while(!matrix.eof()){
 			getline(matrix, str);
@@ -53,11 +53,11 @@ std::vector<std::vector<double> > ReadFromFile(char *filename){
 	return A;
 }
 
-std::vector<double>ReadFromFile(char *filename, int size){
+std::vector<double>ReadFromFile(std::string &filename, int size){
 	std::ifstream matrix;
 	std::vector<double> tm;
 	std::string str;
-	matrix.open(filename);
+	matrix.open(filename.c_str());
 	if(matrix.is_open()){
 		while(!matrix.eof()){
 			getline(matrix, str);
