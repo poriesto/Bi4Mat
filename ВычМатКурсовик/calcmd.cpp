@@ -1,8 +1,8 @@
 //#include "stdafx.h"
-#include "stdafx.h"
+#include "calcmd.h"
 
-void LU(std::vector<std::vector<double>> A, std::vector<std::vector<double>> &L, 
-        std::vector<std::vector<double>>&U){
+void LU(std::vector<std::vector<double> > A, std::vector<std::vector<double> > &L, 
+        std::vector<std::vector<double> >&U){
     U=A;
 
 	for(int i = 0; i < (int)A.size(); i++){
@@ -29,8 +29,8 @@ void LU(std::vector<std::vector<double>> A, std::vector<std::vector<double>> &L,
     }
 }
 
-std::vector<std::vector<double>> Multiplication(std::vector<std::vector<double>>A, std::vector<std::vector <double>> B){
-	std::vector<std::vector<double>>R(A.size());
+std::vector<std::vector<double> > Multiplication(std::vector<std::vector<double> >A, std::vector<std::vector <double> > B){
+	std::vector<std::vector<double> >R(A.size());
 		
 	for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
@@ -44,8 +44,8 @@ std::vector<std::vector<double>> Multiplication(std::vector<std::vector<double>>
 	return R;
 }
 
-std::vector<std::vector<double>>Multiplicaiton(std::vector<std::vector<double>>A, double B){
-    std::vector<std::vector<double>>C(A.size());
+std::vector<std::vector<double> > Multiplicaiton(std::vector<std::vector<double> >A, double B){
+    std::vector<std::vector<double> >C(A.size());
     
     for(int i = 0; i < (int)C.size(); i++){
         for(int j = 0; j < (int)C.size(); j++){
@@ -61,8 +61,8 @@ std::vector<std::vector<double>>Multiplicaiton(std::vector<std::vector<double>>A
     return C;
 }
 
-std::vector<std::vector<double>>Summary(std::vector<std::vector<double>>A, std::vector<std::vector<double>> B){
-    std::vector<std::vector<double>>C(A.size());
+std::vector<std::vector<double> > Summary(std::vector<std::vector<double> >A, std::vector<std::vector<double> > B){
+    std::vector<std::vector<double> >C(A.size());
     
     for(int i = 0; i < (int)C.size(); i++){
         for(int j = 0; j < (int)C.size(); j++){
@@ -78,9 +78,9 @@ std::vector<std::vector<double>>Summary(std::vector<std::vector<double>>A, std::
     return C;
 }
 
-std::vector<double>Isolve(std::vector<std::vector<double>>A, std::vector<double>B){
-	std::vector<double>x;
-	std::vector<std::vector<double>> Ax = A;
+std::vector<double >Isolve(std::vector<std::vector<double> >A, std::vector<double>B){
+	std::vector<double >x;
+	std::vector<std::vector<double> > Ax = A;
 
 	if(Determinant(A) != 0){
 		for(int i = 0; i < (int)A.size(); i++){
@@ -93,13 +93,12 @@ std::vector<double>Isolve(std::vector<std::vector<double>>A, std::vector<double>
 		return x;
 	}
 	else{
-		std::cout << "determinant initial matrix = 0\n";
 		for(int i = 0; i < (int)A.size(); i++) x.push_back(0);
 		return x;
 	}
 }
 
-double Determinant(std::vector<std::vector<double>>a){
+double Determinant(std::vector<std::vector<double> >a){
 	int p=0, i, j, t, k;
 	double kst = 0;
 	int n = a.size();
@@ -125,8 +124,8 @@ double Determinant(std::vector<std::vector<double>>a){
 	return kst;
 }
 
-std::vector<std::vector<double>> L_LT_decomposition(std::vector<std::vector<double> > &A_matrix) {
-		std::vector<std::vector<double>>L_matrix(A_matrix.size(), std::vector<double>(A_matrix.size()));
+std::vector<std::vector<double> > L_LT_decomposition(std::vector<std::vector<double> > &A_matrix) {
+		std::vector<std::vector<double> >L_matrix(A_matrix.size(), std::vector<double >(A_matrix.size()));
 		int i = 0, j = 0, k = 0;
 		double sum = 0;
 	
@@ -151,7 +150,7 @@ std::vector<std::vector<double>> L_LT_decomposition(std::vector<std::vector<doub
 		return L_matrix;
 }
 	
-std::vector<std::vector<double>>Transpose_Matrix(std::vector<std::vector<double>> &matrix) {
+std::vector<std::vector<double> >Transpose_Matrix(std::vector<std::vector<double> > &matrix) {
 		int i, j;
 		double tmp;
 	
@@ -165,8 +164,8 @@ std::vector<std::vector<double>>Transpose_Matrix(std::vector<std::vector<double>
 		return matrix;
 }
 
-void QR(std::vector<std::vector<double>>A, std::vector<std::vector<double>>&Q, 
-        std::vector<std::vector<double>>&R){
+void QR(std::vector<std::vector<double> >A, std::vector<std::vector<double> >&Q, 
+        std::vector<std::vector<double> >&R){
 	for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
 			Q[i].push_back(0);

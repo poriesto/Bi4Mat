@@ -1,5 +1,6 @@
 //#include "stdafx.h"
-#include "stdafx.h"
+#include "Data.h"
+#include <stdlib.h>
 
 std::vector<double> GetDoubleRow(std::string str){
 	std::vector<double> row;
@@ -35,10 +36,10 @@ double GetDoubleElement(std::string str){
 	return element;
 }
 
-std::vector<std::vector<double>> ReadFromFile(char *filename){
+std::vector<std::vector<double> > ReadFromFile(char *filename){
 	std::ifstream matrix;
 	std::vector<double> tm;
-	std::vector<std::vector<double>> A;
+	std::vector<std::vector<double> > A;
 	std::vector<double>::iterator iter = tm.begin();
 	std::string str;
 	matrix.open(filename);
@@ -66,7 +67,7 @@ std::vector<double>ReadFromFile(char *filename, int size){
 	return tm;
 }
 
-void show(std::vector<std::vector<double>>A){
+void show(std::vector<std::vector<double> > A){
     for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
             std::cout <<" "<< A[i][j] << " ";
