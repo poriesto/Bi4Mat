@@ -6,10 +6,10 @@
 #define FILE_MATRIX_B1 "../matrixB1.txt"
 
 int main(){
-
-	std::vector<std::vector<double> > A = ReadFromFile(FILE_MATRIX_A), A1 = ReadFromFile(FILE_MATRIX_A1);
-	std::vector<double>B = ReadFromFile(FILE_MATRIX_B, 0), B1 = ReadFromFile(FILE_MATRIX_B1, 0), x, y;
-	std::vector<std::vector<double> >L(A.size()), U(A.size()), R;
+    
+	std::vector<std::vector<double> > A(ReadFromFile(FILE_MATRIX_A));
+	std::vector<double>B = ReadFromFile(FILE_MATRIX_B, 0);
+	std::vector<std::vector<double> >L(A.size()), U(A.size());
 
 	LU(A,L,U);
     std::cout << "Matrix A" << std::endl;
@@ -18,9 +18,8 @@ int main(){
     show(U);
     std::cout << "L matrix" << std::endl;
     show(L);
-	R = Multiplication(L,U);
     std::cout << "L*U matrix" << std::endl;
-    show(R);
+    show(Multiplication(L,U));
 
 	std::cout << "B: " << std::endl;
 	show(B);
