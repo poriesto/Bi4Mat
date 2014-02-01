@@ -14,3 +14,5 @@ std::vector<std::vector<double> > Transpose_Matrix(std::vector<std::vector<doubl
 double Determinant(std::vector<std::vector<double> >matrix);
 //решение СЛАУ
 std::vector<double> Isolve(std::vector<std::vector<double> >A, std::vector<double> B);
+std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >A, std::vector<std::vector<double> >E);
+std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >L, std::vector<std::vector<double> >U, std::vector<std::vector<double> >E);

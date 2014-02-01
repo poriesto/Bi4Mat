@@ -43,15 +43,17 @@ int main(){
     }
     std::cout << "Ed matrix:" << std::endl;
     show(I);
-    
+    /*
     for(int i = 0; i < 2; i++){
-        revL[i] = Isolve(L,I[i]);
-        revLU[i]= Isolve(U, revL[i]);
+        //revL[i] = Isolve(L,I[i]);
+        //revLU[i]= Isolve(U, revL[i]);
         revA[i] = Isolve(A, I[i]);
-    }
+    }*/
     std::cout << "rev matrixA:" << std::endl;
-    show(Transpose_Matrix(revA));
-    std::cout << "rev matrixLU:" << std::endl;
-    show(Transpose_Matrix(revLU));
+    show(InreverseMatrix(L,U,I));
+    //show(Transpose_Matrix(revA));
+    /*std::cout << "rev matrixLU:" << std::endl;
+    show(Transpose_Matrix(revLU));*/
+    
     return 0;
 }

@@ -172,3 +172,38 @@ void QR(std::vector<std::vector<double> >A, std::vector<std::vector<double> >&Q,
        }
     }
 }
+
+std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >A, std::vector<std::vector<double> >E){
+    std::vector<std::vector<double> >revA(A.size());
+    
+    for(int i = 0; i < (int)A.size(); i++){
+        for(int j = 0; j < (int)A.size(); j++){
+            revA[i].push_back(0);
+        }
+    }
+    
+    for(int i = 0; i < 2; i++){
+        //revL[i] = Isolve(L,I[i]);
+        //revLU[i]= Isolve(U, revL[i]);
+        revA[i] = Isolve(A, E[i]);
+    }
+    revA = Transpose_Matrix(revA);
+    return revA;
+}
+
+std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >L, std::vector<std::vector<double> >U, std::vector<std::vector<double> >E){
+    std::vector<std::vector<double> >revA(L.size()), revL(L.size());
+    
+    for(int i = 0; i < (int)L.size(); i++){
+        for(int j = 0; j < (int)L.size(); j++){
+            revA[i].push_back(0);
+        }
+    }
+    
+    for(int i = 0; i < 2; i++){
+        revL[i] = Isolve(L,E[i]);
+        revA[i] = Isolve(U, revL[i]);
+    }
+    revA = Transpose_Matrix(revA);
+    return revA;
+}
