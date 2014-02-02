@@ -3,7 +3,7 @@
 void LU(std::vector<std::vector<double> > A, std::vector<std::vector<double> > &L, 
         std::vector<std::vector<double> >&U){
     U=A;
-
+    
 	for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
 			L[i].push_back(0);
@@ -204,4 +204,18 @@ std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double
     }
     revA = Transpose_Matrix(revA);
     return revA;
+}
+
+std::vector<std::vector<double> >CreateIdentityMatrix(int size){
+    std::vector<std::vector<double> >I(size);
+    
+    for(int i = 0; i < size; i++){
+        for(int j = 0; j < size; j++){
+            I[i].push_back(0);
+        }
+    }
+    for(int i = 0; i < size; i++){
+            I[i][i] = 1;
+    }
+    return I;
 }
