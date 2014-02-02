@@ -183,8 +183,6 @@ std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double
     }
     
     for(int i = 0; i < 2; i++){
-        //revL[i] = Isolve(L,I[i]);
-        //revLU[i]= Isolve(U, revL[i]);
         revA[i] = Isolve(A, E[i]);
     }
     revA = Transpose_Matrix(revA);

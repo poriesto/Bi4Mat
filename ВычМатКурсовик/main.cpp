@@ -34,16 +34,18 @@ int main(){
     for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
             I[i].push_back(0);
-            revL[i].push_back(0);
-            revA[i].push_back(0);
         }
     }
     for(int i = 0; i < (int)A.size(); i++){
             I[i][i] = 1;
     }
+    
     std::cout << "Ed matrix:" << std::endl;
     show(I);
-    std::cout << "rev matrixA:" << std::endl;
+    std::cout << "rev matrixLU:" << std::endl;
     show(InreverseMatrix(L,U,I));
+    std::cout << "rev matrixA:" << std::endl;
+    show(InreverseMatrix(A,I));
+    
     return 0;
 }
