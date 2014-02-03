@@ -8,7 +8,7 @@ int main(){
     
 	std::vector<std::vector<double> > A(ReadFromFile(FILE_MATRIX_A));
 	std::vector<double>B(ReadFromFile(FILE_MATRIX_B, 0));
-	std::vector<std::vector<double> >L(A.size()), U(A.size()), I(CreateIdentityMatrix((int)A.size())), revLU(A.size()), revA(A.size());
+	std::vector<std::vector<double> >L(A.size()), U(A.size());
 
 	LU(A,L,U);
     std::cout << "Matrix A" << std::endl;
@@ -32,11 +32,10 @@ int main(){
     std::cout << "Find reverse matrix for matrix A" << std::endl;
     // AX = I, LUX = I, LY = I, UX = Y
     std::cout << "Ed matrix:" << std::endl;
-    show(I);
+    show(CreateIdentityMatrix((int)A.size()));
     std::cout << "rev matrixLU:" << std::endl;
-    show(InreverseMatrix(L,U,I));
+    show(InreverseMatrix(L,U,CreateIdentityMatrix((int)A.size())));
     std::cout << "rev matrixA:" << std::endl;
-    show(InreverseMatrix(A,I));
-    
+    show(InreverseMatrix(Multiplication(L,U),CreateIdentityMatrix((int)A.size())));
     return 0;
 }

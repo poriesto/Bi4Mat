@@ -29,18 +29,18 @@ void LU(std::vector<std::vector<double> > A, std::vector<std::vector<double> > &
 }
 
 std::vector<std::vector<double> > Multiplication(std::vector<std::vector<double> >A, std::vector<std::vector <double> > B){
-	std::vector<std::vector<double> >R(A.size());
+	std::vector<std::vector<double> >C(A.size());
 		
 	for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
-            R[i].push_back(0);
+            C[i].push_back(0);
        }
     }
     for(int i = 0; i < (int)A.size(); i++)
         for(int j = 0; j < (int)A.size(); j++)
             for(int k = 0; k < (int)A.size(); k++)
-                R[i][j] += A[i][k] * B[k][j];
-	return R;
+                C[i][j] += A[i][k] * B[k][j];
+	return C;
 }
 
 std::vector<std::vector<double> > Multiplicaiton(std::vector<std::vector<double> >A, double B){
@@ -51,7 +51,6 @@ std::vector<std::vector<double> > Multiplicaiton(std::vector<std::vector<double>
 			C[i].push_back(0);
         }
     }
-    
     for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
             C[i][j] = A[i][j]*B; 
@@ -68,7 +67,6 @@ std::vector<std::vector<double> > Summary(std::vector<std::vector<double> >A, st
             C[i].push_back(0);
         }
     }
-    
     for(int i = 0; i < (int)C.size(); i++){
         for(int j = 0; j < (int)C.size(); j++){
             C[i][j] = A[i][j] + B[i][j];
@@ -181,10 +179,7 @@ std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double
             revA[i].push_back(0);
         }
     }
-    
-    for(int i = 0; i < 2; i++){
-        revA[i] = Isolve(A, E[i]);
-    }
+    for(int i = 0; i < 2; i++) revA[i] = Isolve(A, E[i]);
     revA = Transpose_Matrix(revA);
     return revA;
 }
