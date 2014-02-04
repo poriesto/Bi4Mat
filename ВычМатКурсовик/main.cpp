@@ -3,24 +3,28 @@
 
 int main(){
     
-    std::string FILE_MATRIX_A = {"../matrixA.txt"};
-    std::string FILE_MATRIX_B = {"../matrixB.txt"};
+    std::string FILE_MATRIX_A = {"../txt/matrixA.txt"};
+    std::string FILE_MATRIX_B = {"../txt/matrixB.txt"};
     
-	std::vector<std::vector<double> > A(ReadFromFile(FILE_MATRIX_A));
+	std::vector<std::vector<double> > A(ReadFromFile(FILE_MATRIX_A)), E(CreateIdentityMatrix((int)A.size())), LUmatrix(LU(A));
 	std::vector<double > B(ReadFromFile(FILE_MATRIX_B, 0));
-	std::vector<std::vector<double> >L(A.size()), U(A.size());
+    std::vector<std::vector<double> > L(getL_matrix(LUmatrix));
+    std::vector<std::vector<double> > U(getU_matrix(LUmatrix));
 
-	LU(A,L,U);
+	//Allocate matrix A, vector B
     std::cout << "Matrix A" << std::endl;
 	show(A);
-    std::cout << std::endl << "U matrix" << std::endl;
-    show(U);
+	std::cout << "LU decomp matrix:" << std::endl;
+    show(LUmatrix);
     std::cout << std::endl << "L matrix" << std::endl;
     show(L);
+    std::cout << std::endl << "U matrix" << std::endl;
+    show(U);
     std::cout << std::endl << "L*U matrix" << std::endl;
     show(Multiplication(L,U));
-
-	std::cout << "B: " << std::endl;
+    
+    //Calculate Ax=B or LUx = B, Ly = B, Ux = y
+	std::cout << std::endl << "B: " << std::endl;
 	show(B);
 	std::cout << "decision Ax = B" << std::endl;
 	show(Isolve(A,B));
@@ -29,14 +33,14 @@ int main(){
 	std::cout << "decision Ux = y" << std::endl;
 	show(Isolve(U, Isolve(L,B)));
     
-    std::cout << "Find reverse matrix for matrix A" << std::endl << std::endl;
     // AX = I, LUX = I, LY = I, UX = Y
+    std::cout << "Find reverse matrix for matrix A" << std::endl << std::endl;
     std::cout << "Identity matrix:" << std::endl;
-    show(CreateIdentityMatrix((int)A.size()));
+    show(E);
     std::cout << std::endl << "rev matrix LU:" << std::endl;
-    show(InreverseMatrix(L,U,CreateIdentityMatrix((int)A.size())));
+    show(InreverseMatrix(L,U,E));
     std::cout << std::endl << "rev matrix A:" << std::endl;
-    show(InreverseMatrix(Multiplication(L,U),CreateIdentityMatrix((int)A.size())));
+    show(InreverseMatrix(A,E));
     
     return 0;
 }

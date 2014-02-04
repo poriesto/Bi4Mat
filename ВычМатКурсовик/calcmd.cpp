@@ -1,13 +1,13 @@
 #include "calcmd.h"
 
-void LU(std::vector<std::vector<double> > A, std::vector<std::vector<double> > &L, 
-        std::vector<std::vector<double> >&U){
-    U=A;
+std::vector<std::vector<double> > LU(std::vector<std::vector<double> > A){
+    std::vector<std::vector<double> >U(A), L((int)A.size()), LU((int)A.size());
     
 	for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
 			L[i].push_back(0);
             U[i].push_back(0);
+            LU[i].push_back(0);
        }
     }
     for(int i = 0; i < (int)U.size(); i++){
@@ -26,6 +26,56 @@ void LU(std::vector<std::vector<double> > A, std::vector<std::vector<double> > &
 			}
 		}
     }
+    for(int i = 0; i < (int)A.size(); i++){
+        for(int j = 0; j < (int)A.size(); j++){
+            if(i > j){
+                LU[i][j] = L[i][j];
+            }
+            else{
+                LU[i][j] = U[i][j];
+            }
+        }
+        LU[i][i] = U[i][i];
+    }
+    return LU;
+}
+
+std::vector<std::vector<double> > getL_matrix(std::vector<std::vector<double> > LU){
+    std::vector<std::vector<double> >L(LU);
+    
+    for(int i = 0; i < (int)LU.size(); i++){
+        for(int j = 0; j < (int)LU.size(); j++){
+            if(i == j){
+                L[i][j] = 1;
+            }
+            else if(i > j){
+                L[i][j] = LU[i][j];
+            }
+            else{
+                L[i][j] = 0;
+            }
+        }
+    }
+    return L;
+}
+
+std::vector<std::vector<double> > getU_matrix(std::vector<std::vector<double> > LU){
+    std::vector<std::vector<double> >U(LU);
+    
+    for(int i = 0; i < (int)LU.size(); i++){
+        for(int j = 0; j < (int)LU.size(); j++){
+            if(i == j){
+                U[i][j] = LU[i][j];
+            }
+            else if(i > j){
+                U[i][j] = 0;
+            }
+            else{
+                U[i][j] = LU[i][j];
+            }
+        }
+    }
+    return U;
 }
 
 std::vector<std::vector<double> > Multiplication(std::vector<std::vector<double> >A, std::vector<std::vector <double> > B){
@@ -172,30 +222,20 @@ void QR(std::vector<std::vector<double> >A, std::vector<std::vector<double> >&Q,
 }
 
 std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >A, std::vector<std::vector<double> >E){
-    std::vector<std::vector<double> >revA(A.size());
+    std::vector<std::vector<double> >revA;
     
-    for(int i = 0; i < (int)A.size(); i++){
-        for(int j = 0; j < (int)A.size(); j++){
-            revA[i].push_back(0);
-        }
-    }
-    for(int i = 0; i < (int)A.size(); i++) revA[i] = Isolve(A, E[i]);
+    for(int i = 0; i < (int)A.size(); i++) revA.push_back(Isolve(A, E[i]));
     revA = Transpose_Matrix(revA);
+    
     return revA;
 }
 
 std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >L, std::vector<std::vector<double> >U, std::vector<std::vector<double> >E){
-    std::vector<std::vector<double> >revA(L.size()), revL(L.size());
+    std::vector<std::vector<double> >revA, revL;
     
     for(int i = 0; i < (int)L.size(); i++){
-        for(int j = 0; j < (int)L.size(); j++){
-            revA[i].push_back(0);
-        }
-    }
-    
-    for(int i = 0; i < (int)L.size(); i++){
-        revL[i] = Isolve(L,E[i]);
-        revA[i] = Isolve(U, revL[i]);
+        revL.push_back(Isolve(L,E[i]));
+        revA.push_back(Isolve(U, revL[i]));
     }
     revA = Transpose_Matrix(revA);
     return revA;
@@ -209,8 +249,7 @@ std::vector<std::vector<double> >CreateIdentityMatrix(int size){
             I[i].push_back(0);
         }
     }
-    for(int i = 0; i < size; i++){
-            I[i][i] = 1;
-    }
+    for(int i = 0; i < size; i++) I[i][i] = 1;
+    
     return I;
 }
