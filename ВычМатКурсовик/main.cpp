@@ -8,8 +8,7 @@ int main(){
     
 	std::vector<std::vector<double> > A(ReadFromFile(FILE_MATRIX_A)), E(CreateIdentityMatrix((int)A.size())), LUmatrix(LU(A));
 	std::vector<double > B(ReadFromFile(FILE_MATRIX_B, 0));
-    std::vector<std::vector<double> > L(getL_matrix(LUmatrix));
-    std::vector<std::vector<double> > U(getU_matrix(LUmatrix));
+    std::vector<std::vector<double> > L(getL_matrix(LUmatrix)), U(getU_matrix(LUmatrix));
 
 	//Allocate matrix A, vector B
     std::cout << "Matrix A" << std::endl;
