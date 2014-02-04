@@ -34,7 +34,7 @@ double GetDoubleElement(std::string str){
 	return element;
 }
 
-std::vector<std::vector<double> > ReadFromFile(std::string &filename){
+std::vector<std::vector<double> > ReadFromFile(const std::string &filename){
 	std::ifstream matrix;
 	std::vector<std::vector<double> > A;
 	std::string str;
@@ -48,7 +48,7 @@ std::vector<std::vector<double> > ReadFromFile(std::string &filename){
 	return A;
 }
 
-std::vector<double>ReadFromFile(std::string &filename, int size){
+std::vector<double>ReadFromFile(const std::string &filename, int size){
 	std::ifstream matrix;
 	std::vector<double> tm;
 	std::string str;

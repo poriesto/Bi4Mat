@@ -1,16 +1,15 @@
 #include "Data.h"
 #include "calcmd.h"
 
-int main(){
-    
-    std::string FILE_MATRIX_A = {"../txt/matrixA.txt"};
-    std::string FILE_MATRIX_B = {"../txt/matrixB.txt"};
-    
-	std::vector<std::vector<double> > A(ReadFromFile(FILE_MATRIX_A)), E(CreateIdentityMatrix((int)A.size())), LUmatrix(LU(A));
-	std::vector<double > B(ReadFromFile(FILE_MATRIX_B, 0));
-    std::vector<std::vector<double> > L(getL_matrix(LUmatrix)), U(getU_matrix(LUmatrix));
+const std::string FILE_MATRIX_A = {"../txt/matrixA.txt"};
+const std::string FILE_MATRIX_B = {"../txt/matrixB.txt"};
 
-	//Allocate matrix A, vector B
+int main(){
+	
+	std::vector<std::vector<double> > A(ReadFromFile(FILE_MATRIX_A)), E(CreateIdentityMatrix((int)A.size())), LUmatrix(LU(A));
+    std::vector<std::vector<double> > L(getL_matrix(LUmatrix)), U(getU_matrix(LUmatrix));
+    std::vector<double > B(ReadFromFile(FILE_MATRIX_B, 0));
+    
     std::cout << "Matrix A" << std::endl;
 	show(A);
 	std::cout << "LU decomp matrix:" << std::endl;

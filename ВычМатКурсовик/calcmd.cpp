@@ -48,12 +48,7 @@ std::vector<std::vector<double> > getL_matrix(std::vector<std::vector<double> > 
             if(i == j){
                 L[i][j] = 1;
             }
-            else if(i > j){
-                L[i][j] = LU[i][j];
-            }
-            else{
-                L[i][j] = 0;
-            }
+            else if(i < j) L[i][j] = 0;
         }
     }
     return L;
@@ -69,9 +64,6 @@ std::vector<std::vector<double> > getU_matrix(std::vector<std::vector<double> > 
             }
             else if(i > j){
                 U[i][j] = 0;
-            }
-            else{
-                U[i][j] = LU[i][j];
             }
         }
     }
@@ -125,7 +117,7 @@ std::vector<std::vector<double> > Summary(std::vector<std::vector<double> >A, st
     return C;
 }
 
-std::vector<double >Isolve(std::vector<std::vector<double> >A, std::vector<double>B){
+std::vector<double > Isolve(std::vector<std::vector<double> >A, std::vector<double>B){
 	std::vector<double >x;
 	std::vector<std::vector<double> > Ax = A;
 
@@ -197,7 +189,7 @@ std::vector<std::vector<double> > L_LT_decomposition(std::vector<std::vector<dou
 		return L_matrix;
 }
 	
-std::vector<std::vector<double> >Transpose_Matrix(std::vector<std::vector<double> > &matrix) {
+std::vector<std::vector<double> > Transpose_Matrix(std::vector<std::vector<double> > &matrix) {
 		int i, j;
 		double tmp;
 	
@@ -241,7 +233,7 @@ std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double
     return revA;
 }
 
-std::vector<std::vector<double> >CreateIdentityMatrix(int size){
+std::vector<std::vector<double> > CreateIdentityMatrix(int size){
     std::vector<std::vector<double> >I(size);
     
     for(int i = 0; i < size; i++){
