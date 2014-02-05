@@ -71,9 +71,9 @@ std::vector<std::vector<double> > getU_matrix(std::vector<std::vector<double> > 
 }
 
 std::vector<std::vector<double> > Multiplication(std::vector<std::vector<double> >A, std::vector<std::vector <double> > B){
-	std::vector<std::vector<double> >C(A.size());
+    std::vector<std::vector<double> >C(A.size());
 		
-	for(int i = 0; i < (int)A.size(); i++){
+    for(int i = 0; i < (int)A.size(); i++){
         for(int j = 0; j < (int)A.size(); j++){
             C[i].push_back(0);
        }
@@ -82,7 +82,7 @@ std::vector<std::vector<double> > Multiplication(std::vector<std::vector<double>
         for(int j = 0; j < (int)A.size(); j++)
             for(int k = 0; k < (int)A.size(); k++)
                 C[i][j] += A[i][k] * B[k][j];
-	return C;
+    return C;
 }
 
 std::vector<std::vector<double> > Multiplicaiton(std::vector<std::vector<double> >A, double B){
