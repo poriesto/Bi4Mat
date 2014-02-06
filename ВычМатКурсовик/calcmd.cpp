@@ -206,15 +206,21 @@ std::vector<std::vector<double> > Transpose_Matrix(std::vector<std::vector<doubl
 void QR(std::vector<std::vector<double> >A, std::vector<std::vector<double> >&Q, 
         std::vector<std::vector<double> >&R){
 	for(int i = 0; i < (int)A.size(); i++){
-        for(int j = 0; j < (int)A.size(); j++){
-			Q[i].push_back(0);
-            R[i].push_back(0);
+            for(int j = 0; j < (int)A.size(); j++){
+                Q[i].push_back(0);
+                R[i].push_back(0);
        }
     }
 }
 
 std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >A, std::vector<std::vector<double> >E){
     std::vector<std::vector<double> >revA;
+     
+     for(int i = 0; i < (int)A.size(); i++){
+         for(int j = 0; j < (int)A.size(); j++){
+             revA[i].push_back(0);
+         }
+     }
     
     for(int i = 0; i < (int)A.size(); i++) revA.push_back(Isolve(A, E[i]));
     revA = Transpose_Matrix(revA);
@@ -223,13 +229,21 @@ std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double
 }
 
 std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >L, std::vector<std::vector<double> >U, std::vector<std::vector<double> >E){
-    std::vector<std::vector<double> >revA, revL;
+    std::vector<std::vector<double> >revA((int)L.size()), revL((int)L.size());
     
     for(int i = 0; i < (int)L.size(); i++){
-        revL.push_back(Isolve(L,E[i]));
-        revA.push_back(Isolve(U, revL[i]));
+        for(int j = 0; j < (int)L.size(); j++){
+            revA[i].push_back(0);
+            revL[i].push_back(0);
+        }
+    }
+
+    for(int i = 0; i < (int)L.size(); i++){
+        revL[i] = Isolve(L,E[i]);
+        revA[i] = Isolve(U, revL[i]);
     }
     revA = Transpose_Matrix(revA);
+
     return revA;
 }
 
