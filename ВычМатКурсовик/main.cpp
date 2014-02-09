@@ -21,11 +21,12 @@ int main(){
     std::cout << std::endl << "L*U matrix" << std::endl;
     show(Multiplication(L,U));
     
-    //Calculate Ax=B or LUx = B, Ly = B, Ux = y
+    //Calculate Ax=B
     std::cout << std::endl << "B: " << std::endl;
     show(B);
     std::cout << "decision Ax = B" << std::endl;
     show(Isolve(A,B));
+    //Calculate Ly=b, Ux=y
     std::cout << "decision Ly = B" << std::endl;
     show(Isolve(L,B));
     std::cout << "decision Ux = y" << std::endl;
