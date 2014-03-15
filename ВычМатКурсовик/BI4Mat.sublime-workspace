@@ -1,0 +1,572 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"la",
+				"layout"
+			],
+			[
+				"cou",
+				"count-1"
+			],
+			[
+				"alpabetG",
+				"alpabetGlas"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "calcmd.cpp",
+			"settings":
+			{
+				"buffer_size": 6703,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "calcmd.h",
+			"settings":
+			{
+				"buffer_size": 1509,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Data.cpp",
+			"settings":
+			{
+				"buffer_size": 1870,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Data.h",
+			"settings":
+			{
+				"buffer_size": 400,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Data.h.gch",
+			"settings":
+			{
+				"buffer_size": 34987687,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 1539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "makefile",
+			"settings":
+			{
+				"buffer_size": 299,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/Java/JavaC.sublime-build",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/poriesto/Documents/main.cpp",
+		"/home/poriesto/Downloads/xdefaults-urxvt",
+		"/home/poriesto/.Xdefaults",
+		"/home/poriesto/.config/awesome/rc.lua",
+		"/home/poriesto/workspace/OPM/src/OPM.c",
+		"/home/poriesto/rtos/test.cpp",
+		"/home/poriesto/rtos/defs.h",
+		"/home/poriesto/rtos/global.cpp",
+		"/home/poriesto/rtos/os.cpp",
+		"/home/poriesto/rtos/resource.cpp",
+		"/home/poriesto/rtos/rtos_api.h",
+		"/home/poriesto/rtos/sys.h",
+		"/home/poriesto/rtos/task.cpp",
+		"/home/poriesto/workspace/CDLApp/src/CDLApp.java",
+		"/media/poriesto/WINSETUP/ОС реального времени (Арх. ВС)/rtos/sys.h",
+		"/home/poriesto/workspace/RTOS/src/defs.h",
+		"/home/poriesto/workspace/RTOS/src/rtos_api.h",
+		"/home/poriesto/workspace/RTOS/src/test.cpp",
+		"/home/poriesto/workspace/RTOS/src/RTOS.cpp",
+		"/home/poriesto/workspace/RTOS/src/global.cpp",
+		"/home/poriesto/workspace/RTOS/src/os.cpp",
+		"/home/poriesto/workspace/RTOS/src/resource.cpp",
+		"/home/poriesto/workspace/RTOS/src/task.cpp",
+		"/home/poriesto/workspace/RTOS/src/sys.h",
+		"/home/poriesto/Documents/Вычислительная математика.",
+		"/home/poriesto/.config/awesome/rc1.lua",
+		"/home/poriesto/expAWS/rc.lua",
+		"/home/poriesto/awesome/rc.lua",
+		"/home/poriesto/SnakeQT/SnakeQT/mainwindow.cpp",
+		"/home/poriesto/expAWS/readme.md",
+		"/home/poriesto/SnakeQT/SnakeQT/scene3d.h",
+		"/home/poriesto/SnakeQT/SnakeQT/scene3d.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/oglgfx.cpp",
+		"/home/poriesto/build-SnakeQTGUI-Qt_5_2_1_gcc_64_temporary-Debug/QT-OpenGL-Labs/scene3d.h",
+		"/home/poriesto/build-SnakeQTGUI-Qt_5_2_1_gcc_64_temporary-Debug/QT-OpenGL-Labs/scene3d.cpp",
+		"/home/poriesto/build-SnakeQTGUI-Qt_5_2_1_gcc_64_temporary-Debug/QT-OpenGL-Labs/main.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/Win32Project1.cpp",
+		"/home/poriesto/SnakeQT/SnakeQT/SnakeGameSource/oglgfx.h",
+		"/home/poriesto/SnakeQT/SnakeQT/SnakeGameSource/oglgfx.cpp",
+		"/home/poriesto/QT_OpenGL_lesson1-master/mainwindow.h",
+		"/home/poriesto/QT_OpenGL_lesson1-master/mainwindow.cpp",
+		"/home/poriesto/SnakeQT/build-SnakeQT-Qt_5_2_1_gcc_64-Debug/Makefile",
+		"/home/poriesto/workspace/SnakeGameSource/congfx.cpp",
+		"/home/poriesto/workspace/SnakeGameSource/congfx.h",
+		"/home/poriesto/workspace/SnakeGameSource/snake.h",
+		"/home/poriesto/Desktop/words.java",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/resource.h",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/Win32Project1.h",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/oglgfx.h",
+		"/home/poriesto/-",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/congfx.h",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/congfx.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/stdafx.h",
+		"/home/poriesto/SnakeQT/build-SnakeQT-Qt_5_2_1_gcc_64-Debug/pl.txt",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/OptionsModule.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/OptionsModule.h",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/StatModule.h",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/StatModule.cpp",
+		"/home/poriesto/config.txt",
+		"/home/poriesto/bck_qtile",
+		"/home/poriesto/NFS3.sh",
+		"/home/poriesto/NFS4.sh",
+		"/home/poriesto/Documents/lab3n2/out/production/lab3n2/debug.txt",
+		"/home/poriesto/.config/subtle/ruby/levenshtein.rb",
+		"/home/poriesto/.config/subtle/ruby/launcher.rb",
+		"/home/poriesto/.cache/.fr-0kJFHD/subtle-contrib-65d7917117a2/ruby/launcher.rb",
+		"/home/poriesto/.config/qtile/config.py",
+		"/home/poriesto/Downloads/vim-airline-master/README.md",
+		"/home/poriesto/.vimrc",
+		"/home/poriesto/.cache/.fr-Yt6nPv/subtle-contrib-65d7917117a2/.hg_archival.txt",
+		"/home/poriesto/launcher.rb",
+		"/home/poriesto/.cache/.fr-oCRNqC/subtle-contrib-65d7917117a2/.hg_archival.txt",
+		"/home/poriesto/.cache/.fr-fOY7Zo/subtle-contrib-65d7917117a2/LICENSE",
+		"/home/poriesto/configs-master/README",
+		"/home/poriesto/configs-master/ratpoisonrc",
+		"/etc/xdg/subtle/subtle.rb",
+		"/home/poriesto/configs-master/wmfs/wmfsrc",
+		"/home/poriesto/configs-master/mwm/config.h",
+		"/home/poriesto/Documents/2012n2.txt",
+		"/home/poriesto/untitled.py",
+		"/home/poriesto/idea-IC-133.696/bin/idea.properties",
+		"/home/poriesto/.config/qtile/config.py.bck",
+		"/home/poriesto/build-SnakeQTGUI-Qt_5_2_1_gcc_64_temporary-Debug/pl.txt",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/snakepln.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/snakegfx.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/snakegam.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/snakectl.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/snakecls.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/snakecel.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/snake.h",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/kbdctl.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/kbdctl.h",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/stdafx.cpp",
+		"/home/poriesto/Documents/SuperSnake/Win32Project1/targetver.h",
+		"/home/poriesto/Win32Project1/Win32Project1/snakepln.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/snakegfx.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/snakegam.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/snakectl.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/snakecls.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/snakecel.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/congfx.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/congfx.h",
+		"/home/poriesto/Win32Project1/Win32Project1/kbdctl.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/kbdctl.h",
+		"/home/poriesto/Win32Project1/Win32Project1/oglgfx.cpp",
+		"/home/poriesto/Win32Project1/Win32Project1/oglgfx.h",
+		"/home/poriesto/Win32Project1/Win32Project1/snake.h",
+		"/home/poriesto/Win32Project1/Win32Project1/Win32Project1.cpp",
+		"/home/poriesto/build-SnakeQTGUI-Qt_5_2_1_gcc_64_temporary-Debug/config.txt",
+		"/home/poriesto/Win32Project1/stat.txt",
+		"/home/poriesto/Snake.sh",
+		"/home/poriesto/build-SnakeQTGUI-Desktop_Qt_5_2_1_GCC_64bit-Debug/Music/pl.txt",
+		"/home/poriesto/build-SnakeQTGUI-Desktop_Qt_5_2_1_GCC_64bit-Debug/pl.txt",
+		"/home/poriesto/build-SnakeQTGUI-Qt_4_8_4_qt4_temporary-Debug/pl.txt",
+		"/home/poriesto/build-SnakeQTGUI-Qt_4_8_4_qt4_temporary-Debug/Makefile",
+		"/home/poriesto/pl.txt",
+		"/home/poriesto/Documents/Теория вероятности",
+		"/home/poriesto/build-SnakeQTGUI-Desktop-Debug/ui_mainwindow.h",
+		"/home/poriesto/Documents/lab4n2/src/lab4n2.java",
+		"/home/poriesto/workspace/test1/src/main.java",
+		"/home/poriesto/.cache/.fr-b0NGbx/IntelliJ IDEA Global Settings",
+		"/home/poriesto/Documents/lab4n2/lab4n2.iml",
+		"/home/poriesto/untitled/main.cpp",
+		"/home/poriesto/untitled/CMakeLists.txt",
+		"/home/poriesto/mpd/playlists/Dlna.m3u.backup",
+		"/home/poriesto/mpd/playlists/Dlna.m3u",
+		"/home/poriesto/configs-master/subtle.rb"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"right_layout:add(",
+			"myvolumewidget",
+			"init",
+			"putCube",
+			"drawAxis",
+			"drawElements",
+			"drawElement",
+			"putCube",
+			"drawCube",
+			"init",
+			"lGL",
+			"install",
+			"http://poriesto.no-ip.org",
+			"http://poriesto.no-ip.org//",
+			"http://192.168.1.1:8200"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"http://poriesto.no-ip.org:8200",
+			"http://poriesto.no-ip.org/"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 5,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "calcmd.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "calcmd.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1509,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Data.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1870,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Data.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 400,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Data.h.gch",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 34987687,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "makefile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 299,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 170.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "BI4Mat.sublime-project",
+	"replace":
+	{
+		"height": 40.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 135.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,8 +1,8 @@
 #include "Data.h"
 #include "calcmd.h"
 
-const std::string FILE_MATRIX_A = {"../txt/matrixA.txt"};
-const std::string FILE_MATRIX_B = {"../txt/matrixB.txt"};
+const std::string FILE_MATRIX_A = "../txt/matrixA.txt";
+const std::string FILE_MATRIX_B = "../txt/matrixB.txt";
 
 int main(){
 	
