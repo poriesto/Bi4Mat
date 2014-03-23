@@ -225,8 +225,8 @@ std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double
 
 std::vector<std::vector<double> > InreverseMatrix(std::vector<std::vector<double> >L, std::vector<std::vector<double> >U, std::vector<std::vector<double> >E){
     std::vector<std::vector<double> >revA, revL;
-    
-    for(int i = 0; i < (int)L.size(); i++){
+
+   for(int i = 0; i < (int)L.size()-1; i++){
         revL.push_back(Isolve(L,E[i]));
         revA.push_back(Isolve(U, revL[i]));
     }

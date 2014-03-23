@@ -37,9 +37,14 @@ int main(){
     std::cout << "Identity matrix:" << std::endl;
     show(E);
     std::cout << std::endl << "rev matrix LU:" << std::endl;
-    show(InreverseMatrix(L,U,E));
+    /*show(InreverseMatrix(L,U,E));
     std::cout << std::endl << "rev matrix A:" << std::endl;
     show(InreverseMatrix(A,E));
-    
+    */
+	show(Isolve(L, E[0]));
+	show(Isolve(L, E[1]));
+	show(E[2]);
+	//show(Isolve(L, E[2]));
+	show(Isolve(L, E[2]));
     return 0;
 }

@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-
+#include <algorithm>
 std::vector<double> GetDoubleRow(std::string str);
 double GetDoubleElement(std::string str);
 std::vector<std::vector<double> > ReadFromFile(const std::string &filename);

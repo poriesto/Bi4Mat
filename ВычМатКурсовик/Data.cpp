@@ -63,19 +63,14 @@ std::vector<double>ReadFromFile(const std::string &filename, int size){
 }
 
 void show(std::vector<std::vector<double> > A){
-    for(int i = 0; i < (int)A.size(); i++){
-        for(int j = 0; j < (int)A.size(); j++){
-            std::cout <<" "<< A[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
+	std::for_each(A.begin(), A.end(), [](std::vector<double> value){
+				show(value);
+			});
 }
 
 void show(std::vector<double>A){
-	std::vector<double>::iterator iter = A.begin();
-	while(iter != A.end()){
-		std::cout << " " << *iter << "\n";
-		iter++;
-	}
+	std::for_each(A.begin(), A.end(), [](double value){
+		   	std::cout << value << " ";
+			});
 	std::cout << std::endl;
 }
